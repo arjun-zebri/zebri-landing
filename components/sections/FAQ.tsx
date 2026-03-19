@@ -24,7 +24,7 @@ export function FAQ() {
     {
       id: "pricing",
       q: "How much will Zebri cost?",
-      a: "Zebri will be $50 per month. Early adopters who join before May 1st get 20% off that price, locked in forever.",
+      a: "Zebri will be $50 per month. Early adopters who join before May 1st get 20% off that price, forever.",
     },
     {
       id: "feedback",
