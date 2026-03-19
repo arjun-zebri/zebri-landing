@@ -13,9 +13,46 @@ export function Features() {
         </div>
 
         <div className="space-y-24 md:space-y-32">
-          {/* 1. Client Management (CRM) */}
+          {/* 1. Shared Timelines (KEY FEATURE) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
+              <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mb-5">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-blue-600"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                Shared Timelines with Vendors
+              </h3>
+              <p className="text-base text-gray-500 leading-relaxed">
+                One timeline. DJ sees it. Photographer sees it. Planner sees it.
+                Everyone stays synced in real-time. As you edit on the fly, all
+                your vendors see updates instantly. No more scattered
+                spreadsheets or conflicting versions.
+              </p>
+            </div>
+            <TimelineMock />
+          </div>
+
+          {/* 2. Client Management (CRM) */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="order-2 lg:order-1">
+              <ClientManagementMock />
+            </div>
+            <div className="order-1 lg:order-2">
               <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mb-5">
                 <svg
                   width="20"
@@ -37,44 +74,10 @@ export function Features() {
                 Client Management
               </h3>
               <p className="text-base text-gray-500 leading-relaxed">
-                A full CRM built for wedding MCs. Track every couple, vendor,
-                venue, payment, and note in one place. Kanban pipelines, contact
-                details, payment status, and all the MC specifics no generic CRM
-                handles. Replace the spreadsheet for good.
-              </p>
-            </div>
-            <ClientManagementMock />
-          </div>
-
-          {/* 2. Timeline Builder (ALTERNATED) */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <TimelineMock />
-            </div>
-            <div className="order-1 lg:order-2">
-              <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mb-5">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-blue-600"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                Timeline Builder
-              </h3>
-              <p className="text-base text-gray-500 leading-relaxed">
-                Drag and drop timeline synced with the couple. Edit on the fly.
-                Everyone sees the same schedule, so nobody is asking &ldquo;what
-                time is first dance?&rdquo;
+                A CRM built for professional MCs and celebrants. Track couples,
+                vendors, venues, payments, and notes. Replace your spreadsheet.
+                Kanban pipelines, contact details, payment tracking and
+                everything else you need to manage your business.
               </p>
             </div>
           </div>
@@ -147,7 +150,7 @@ export function Features() {
             </div>
           </div>
 
-          {/* 5. Event Mode */}
+          {/* 5. Event Mode (Offline-First) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
               <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center mb-5">
@@ -169,9 +172,10 @@ export function Features() {
                 Event Mode
               </h3>
               <p className="text-base text-gray-500 leading-relaxed">
-                A focused, distraction free view built for live performance.
-                Large text, current item highlighted, next cue visible. No tabs,
-                no clutter. Just you and the timeline.
+                A focused, distraction-free view built for live performance.
+                Large text, current item highlighted, next cue visible. No tabs.
+                No clutter. Works completely offline with no wifi. Just you and
+                your timeline on the day.
               </p>
             </div>
             <EventModeMock />

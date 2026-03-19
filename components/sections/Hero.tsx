@@ -9,26 +9,26 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Copy + CTA */}
           <div className="space-y-8">
-            {/* Urgency badge */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-md bg-amber-50 border border-amber-200">
+            {/* Closed beta badge + Early access CTA */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-md bg-slate-100 border border-slate-300">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-slate-400"></span>
               </span>
-              <span className="text-xs font-semibold text-amber-800 tracking-wide">
-                Only 7 spots left &middot; Closes March 30
+              <span className="text-xs font-semibold text-slate-700 tracking-wide">
+                Beta waitlist closed &middot; Early access open
               </span>
             </div>
 
             {/* Headline */}
             <div className="space-y-5">
               <h1 className="text-[2.75rem] md:text-[3.25rem] font-bold leading-[1.12] tracking-tight text-gray-900">
-                Your entire wedding workflow is&nbsp;held together by&nbsp;tabs.
+                One command centre for&nbsp;your whole&nbsp;team.
               </h1>
               <p className="text-lg text-gray-500 leading-relaxed max-w-lg">
-                Google Docs. WhatsApp. PDFs. Your brain. Zebri replaces all of
-                it with one command centre built for professional
-                wedding&nbsp;MCs.
+                Your entire wedding workflow is&nbsp;held together using Google
+                Docs, WhatsApp, PDFs, your Notes App and your brain. Zebri
+                replaces all of it with one command centre built for
+                professional MCs and celebrants.
               </p>
             </div>
 
@@ -36,34 +36,54 @@ export function Hero() {
             <div className="pt-2">
               <SignupForm variant="inline" />
               <p className="text-xs text-gray-400 mt-2.5">
-                No credit card required. Free beta access for founding members.
+                No credit card required. 20% off forever for early adopters
+                before May 1st public launch.
               </p>
             </div>
 
-            {/* Social proof */}
-            <div className="flex items-center gap-3 pt-2">
-              <div className="flex -space-x-2">
-                {[
-                  "bg-gray-800",
-                  "bg-emerald-600",
-                  "bg-amber-600",
-                  "bg-violet-600",
-                ].map((color, i) => (
-                  <div
-                    key={i}
-                    className={`w-7 h-7 rounded-full ${color} border-2 border-white flex items-center justify-center`}
-                  >
-                    <span className="text-[10px] font-bold text-white">
-                      {["JM", "KL", "SR", "AT"][i]}
-                    </span>
-                  </div>
-                ))}
+            {/* Social proof + Launch date */}
+            <div className="flex flex-col gap-4 pt-4">
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-2">
+                  {[
+                    "bg-gray-800",
+                    "bg-emerald-600",
+                    "bg-amber-600",
+                    "bg-violet-600",
+                  ].map((color, i) => (
+                    <div
+                      key={i}
+                      className={`w-7 h-7 rounded-full ${color} border-2 border-white flex items-center justify-center`}
+                    >
+                      <span className="text-[10px] font-bold text-white">
+                        {["NC", "JK", "SR", "AT"][i]}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-sm text-gray-500">
+                  <span className="font-semibold text-gray-700">
+                    30 have joined the private beta
+                  </span>
+                </p>
               </div>
-              <p className="text-sm text-gray-500">
-                <span className="font-semibold text-gray-700">
-                  13 MCs have already joined the beta
+              <div className="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-blue-50 border border-blue-200">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="text-blue-600"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                <span className="text-xs font-semibold text-blue-700">
+                  Public launch: May 1, 2026
                 </span>
-              </p>
+              </div>
             </div>
           </div>
 

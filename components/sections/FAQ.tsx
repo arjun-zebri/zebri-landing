@@ -8,38 +8,43 @@ export function FAQ() {
   const faqs = [
     {
       id: "pro-only",
-      q: "Is Zebri only for professional MCs?",
-      a: "Zebri is built for wedding MCs who want to run their business more efficiently. Whether you do 5 weddings a year or 50, if you want one place to manage your clients, timelines, scripts, and events, Zebri is for you.",
+      q: "Is Zebri only for professional MCs and celebrants?",
+      a: "Yes, Zebri is built for professional wedding MCs and celebrants managing 25+ events per year. We focus exclusively on vendors who need operational tools built for wedding coordination, not generic business software.",
     },
     {
       id: "crm",
       q: "Is this a CRM?",
-      a: "Zebri includes full client management features like couple contacts, vendor details, and payment tracking, but it goes further. It\u2019s purpose built for MCs with timelines, scripts, couple portals, and event mode all in one place. Think of it as the operational hub no generic CRM was designed to be.",
+      a: "Zebri includes full client management features like couple contacts, vendor details, and payment tracking, but it goes further. It\u2019s purpose built for MCs and celebrants with shared timelines, scripts, couple portals, and offline event mode all in one place. Think of it as the operational hub no generic CRM was designed to be.",
     },
     {
       id: "launch",
       q: "When is this launching?",
-      a: "We\u2019re targeting Q3 2026 for general availability. Right now we\u2019re in founding member testing with early adopters who shape the final product.",
+      a: "Public launch is May 1, 2026. Early adopters who join now get 20% off forever. After May 1st, new customers won\u2019t get that pricing.",
     },
     {
       id: "pricing",
       q: "How much will Zebri cost?",
-      a: "Zebri will be $50 per month. Founding members get 40% off that price, locked in forever. That\u2019s $30 per month for as long as you stay subscribed.",
+      a: "Zebri will be $50 per month. Early adopters who join before May 1st get 20% off that price, locked in forever.",
     },
     {
       id: "feedback",
       q: "Can I give feedback?",
-      a: "Absolutely, and we genuinely want to hear it. As a founding member you\u2019ll have direct access to our team via Slack. Your feedback directly shapes what we build next.",
+      a: "Absolutely, and we genuinely want to hear it. As an early adopter you\u2019ll have direct access to our team via Slack. Your feedback directly shapes what we build next.",
     },
     {
-      id: "global",
-      q: "Is this available outside Australia?",
-      a: "Yes. Zebri is being built for MCs everywhere. We\u2019re launching globally and want your feedback regardless of where you are.",
+      id: "shared-timelines",
+      q: "Can I share timelines with my DJ, photographer, and other vendors?",
+      a: "Yes. Shared timelines are built into Zebri. Your vendors can access the timeline you share with them, see updates in real-time, and coordinate better. Perfect for keeping the whole team synced.",
+    },
+    {
+      id: "offline",
+      q: "Does event mode work without internet?",
+      a: "Yes. Event mode works completely offline. All your event data, timeline, scripts, couple details and notes are available without wifi on the day. Perfect for venue venues with spotty connectivity.",
     },
     {
       id: "after-signup",
       q: "What happens after I sign up?",
-      a: "You\u2019ll receive one email confirming your spot. When beta access opens, we\u2019ll invite founding members first. No spam, no drip campaigns. Just one email when it\u2019s time.",
+      a: "You\u2019ll receive one email confirming your early access. We\u2019ll contact you closer to May 1st with setup details and to answer questions. No spam, no drip campaigns.",
     },
   ];
 
@@ -57,9 +62,7 @@ export function FAQ() {
               className="border-b border-gray-100 last:border-b-0"
             >
               <button
-                onClick={() =>
-                  setExpanded(expanded === faq.id ? null : faq.id)
-                }
+                onClick={() => setExpanded(expanded === faq.id ? null : faq.id)}
                 className="w-full flex items-center justify-between gap-4 text-left py-5 md:py-6 group"
               >
                 <span className="text-[15px] font-semibold text-gray-800 group-hover:text-gray-900 transition-colors">
@@ -74,7 +77,9 @@ export function FAQ() {
                     stroke="currentColor"
                     strokeWidth="2.5"
                     strokeLinecap="round"
-                    className={`text-gray-500 transition-transform duration-200 ${expanded === faq.id ? "rotate-180" : ""}`}
+                    className={`text-gray-500 transition-transform duration-200 ${
+                      expanded === faq.id ? "rotate-180" : ""
+                    }`}
                   >
                     <path d="m6 9 6 6 6-6" />
                   </svg>

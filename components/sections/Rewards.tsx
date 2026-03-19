@@ -1,8 +1,8 @@
 export function Rewards() {
   const rewards = [
     {
-      title: "40% Off Forever",
-      description: "Founding members lock in lifetime discounted pricing. When Zebri launches at full price, you\u2019ve already won.",
+      title: "20% Off Forever",
+      description: "Early adopters lock in lifetime 20% discount. When Zebri launches at full price on May 1st, your price stays locked in.",
       bgColor: "bg-amber-100",
       textColor: "text-amber-600",
       icon: (
@@ -13,28 +13,27 @@ export function Rewards() {
       ),
     },
     {
-      title: "Shape the Product",
-      description: "Your feedback directly influences what we build. You\u2019re not a beta tester. You\u2019re a co-creator.",
+      title: "Direct Vendor Access",
+      description: "Early adopters get direct team access. Slack channel with the team, not a ticket system. Your feedback shapes what we build.",
       bgColor: "bg-blue-100",
       textColor: "text-blue-600",
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M2 20h.01" />
-          <path d="M7 20v-4" />
-          <path d="M12 20v-8" />
-          <path d="M17 20V8" />
-          <path d="M22 4v16" />
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
         </svg>
       ),
     },
     {
-      title: "Direct Team Access",
-      description: "No ticket system. No support queue. Direct Slack channel with the team. Real people answering real questions.",
+      title: "Collaborate with Your Vendors",
+      description: "Share timelines with DJs, planners, photographers, and other MCs. Everyone stays synced. Works offline on the day.",
       bgColor: "bg-emerald-100",
       textColor: "text-emerald-600",
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
         </svg>
       ),
     },
@@ -44,10 +43,10 @@ export function Rewards() {
     <section className="py-20 px-4 md:py-32 bg-gray-50/70">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-[2.5rem] md:text-[2.75rem] font-bold text-gray-900 leading-tight tracking-tight mb-4">
-          Founding members get real rewards.
+          Early adopters get real rewards.
         </h2>
         <p className="text-lg text-gray-500 mb-12 md:mb-16 max-w-xl">
-          This isn&apos;t a free trial. It&apos;s an invitation to shape something from the ground up.
+          Join before May 1st public launch and lock in 20% off forever. Direct access to the team. Your feedback shapes the product.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -69,21 +68,20 @@ export function Rewards() {
           ))}
         </div>
 
-        {/* Urgency callout */}
-        <div className="mt-10 rounded-lg border border-gray-200 border-l-4 border-l-amber-500 bg-amber-50 p-5 md:p-6 flex items-start gap-4">
-          <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="2.5" strokeLinecap="round">
+        {/* Launch date callout */}
+        <div className="mt-10 rounded-lg border border-gray-200 border-l-4 border-l-blue-500 bg-blue-50 p-5 md:p-6 flex items-start gap-4">
+          <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="2.5" strokeLinecap="round">
               <circle cx="12" cy="12" r="10" />
-              <line x1="12" x2="12" y1="8" y2="12" />
-              <line x1="12" x2="12.01" y1="16" y2="16" />
+              <polyline points="12 6 12 12 16 14" />
             </svg>
           </div>
           <div>
             <p className="text-sm font-semibold text-gray-900">
-              Only for founding members.
+              Public launch: May 1, 2026
             </p>
             <p className="text-sm text-gray-500 mt-1">
-              Once the 20 spots fill, the next batch won&apos;t get these benefits. First come, first served.
+              Join now to lock in 20% off forever. Pricing will increase on launch day for new customers.
             </p>
           </div>
         </div>

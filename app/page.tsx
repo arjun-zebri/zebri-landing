@@ -30,9 +30,7 @@ export default function Home() {
                   </span>
                 </div>
                 <p className="text-sm text-gray-400 leading-relaxed max-w-sm">
-                  The command centre for professional wedding MCs. One place for
-                  your timeline, scripts, couple details, and live performance
-                  mode.
+                  The command centre for professional wedding MCs and celebrants. One place for your timeline, scripts, couple details, vendor coordination, and live performance mode.
                 </p>
               </div>
 
@@ -43,11 +41,11 @@ export default function Home() {
                 </h4>
                 <ul className="space-y-2.5">
                   {[
-                    "Client Management",
-                    "Timeline Builder",
+                    "Shared Timelines",
+                    "Event Mode (Offline)",
                     "Couple Portal",
                     "Script Organiser",
-                    "Event Mode",
+                    "Vendor Management",
                   ].map((label) => (
                     <li key={label}>
                       <span className="text-sm text-gray-400 cursor-default">
@@ -85,6 +83,30 @@ export default function Home() {
                       arjun@zebri.com.au
                     </a>
                   </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/zebri_au/"
+                      className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2.5"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <circle cx="17.5" cy="6.5" r="1.5" />
+                      </svg>
+                      @zebri_au
+                    </a>
+                  </li>
                 </ul>
 
                 {/* Mini CTA */}
@@ -113,7 +135,7 @@ export default function Home() {
 
             {/* Bottom bar */}
             <div className="py-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-              <p>&copy; 2026 Zebri. Built for professional wedding MCs.</p>
+              <p>&copy; 2026 Zebri. Built for professional wedding MCs and celebrants.</p>
               <p className="flex items-center gap-1.5">
                 Made with
                 <svg
@@ -125,7 +147,7 @@ export default function Home() {
                 >
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                 </svg>
-                for MCs everywhere
+                for vendors everywhere
               </p>
             </div>
           </div>

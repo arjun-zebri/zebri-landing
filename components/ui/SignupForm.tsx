@@ -20,9 +20,7 @@ export function SignupForm({ variant = "default" }: SignupFormProps) {
     weddingsPerYear: "",
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -59,11 +57,14 @@ export function SignupForm({ variant = "default" }: SignupFormProps) {
   if (variant === "inline") {
     return (
       <div className="space-y-3">
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col sm:flex-row gap-3"
+        >
           <input
             type="email"
             name="email"
-            placeholder="your@email.com"
+            placeholder="you@email.com"
             value={formData.email}
             onChange={handleChange}
             disabled={isLoading}
@@ -96,7 +97,9 @@ export function SignupForm({ variant = "default" }: SignupFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1.5">Name</label>
+        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+          Name
+        </label>
         <input
           type="text"
           name="name"
@@ -110,7 +113,9 @@ export function SignupForm({ variant = "default" }: SignupFormProps) {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
+        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+          Email
+        </label>
         <input
           type="email"
           name="email"
