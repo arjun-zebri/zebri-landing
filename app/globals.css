@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F9FAFB;
+  --text-primary: #1F2937;
+  --text-secondary: #9CA3AF;
+  --border: #E5E7EB;
+  --accent: #3B82F6;
+  --accent-dark: #1D4ED8;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default focus outlines and let Tailwind handle them */
+*:focus {
+  outline: none;
+}
