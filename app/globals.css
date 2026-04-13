@@ -1,13 +1,13 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --bg-primary: #FFFFFF;
-  --bg-secondary: #F9FAFB;
-  --text-primary: #1F2937;
-  --text-secondary: #9CA3AF;
+  --bg-secondary: #FAFAFA;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
   --border: #E5E7EB;
-  --accent: #3B82F6;
-  --accent-dark: #1D4ED8;
+  --accent: #A7F3D0;
 }
 
 /* Smooth scrolling for anchor links */

@@ -1,10 +1,12 @@
 import { Nav } from "@/components/ui/Nav";
 import { Hero } from "@/components/sections/Hero";
+import { HowItWorks } from "@/components/sections/HowItWorks";
 import { PainPoints } from "@/components/sections/PainPoints";
 import { Features } from "@/components/sections/Features";
-import { Rewards } from "@/components/sections/Rewards";
+import { Pricing } from "@/components/sections/Pricing";
 import { FAQ } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -12,9 +14,10 @@ export default function Home() {
       <Nav />
       <main className="w-full">
         <Hero />
+        <HowItWorks />
         <PainPoints />
         <Features />
-        <Rewards />
+        <Pricing />
         <FAQ />
         <FinalCTA />
 
@@ -25,12 +28,14 @@ export default function Home() {
               {/* Brand column */}
               <div className="md:col-span-5">
                 <div className="mb-3">
-                  <span className="text-lg font-bold tracking-tight text-white">
+                  <span className="text-lg font-semibold tracking-tight text-white">
                     Zebri
                   </span>
                 </div>
                 <p className="text-sm text-gray-400 leading-relaxed max-w-sm">
-                  The command centre for professional wedding MCs and celebrants. One place for your timeline, scripts, couple details, vendor coordination, and live performance mode.
+                  The command centre for professional wedding MCs and
+                  celebrants. One place for your timeline, scripts, couple
+                  details, vendor coordination, and live performance mode.
                 </p>
               </div>
 
@@ -41,16 +46,17 @@ export default function Home() {
                 </h4>
                 <ul className="space-y-2.5">
                   {[
-                    "Shared Timelines",
-                    "Event Mode (Offline)",
-                    "Couple Portal",
-                    "Script Organiser",
-                    "Vendor Management",
-                  ].map((label) => (
+                    { label: "Features", href: "#features" },
+                    { label: "Pricing", href: "#pricing" },
+                    { label: "Blog", href: "/blog" },
+                  ].map(({ label, href }) => (
                     <li key={label}>
-                      <span className="text-sm text-gray-400 cursor-default">
+                      <a
+                        href={href}
+                        className="text-sm text-gray-400 hover:text-white transition-colors"
+                      >
                         {label}
-                      </span>
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -100,7 +106,14 @@ export default function Home() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       >
-                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                        <rect
+                          width="20"
+                          height="20"
+                          x="2"
+                          y="2"
+                          rx="5"
+                          ry="5"
+                        />
                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                         <circle cx="17.5" cy="6.5" r="1.5" />
                       </svg>
@@ -112,17 +125,17 @@ export default function Home() {
                 {/* Mini CTA */}
                 <div className="mt-6 pt-6 border-t border-gray-800">
                   <a
-                    href="#join-beta"
+                    href="https://app.zebri.com.au/signup"
                     className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-md bg-white text-gray-900 hover:bg-gray-100 transition-colors"
                   >
-                    Join the Beta
+                    Start Free Trial
                     <svg
                       width="14"
                       height="14"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      strokeWidth="2.5"
+                      strokeWidth="1.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     >
@@ -135,20 +148,18 @@ export default function Home() {
 
             {/* Bottom bar */}
             <div className="py-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-              <p>&copy; 2026 Zebri. Built for professional wedding MCs and celebrants.</p>
-              <p className="flex items-center gap-1.5">
-                Made with
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="#EF4444"
-                  stroke="none"
-                >
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                </svg>
-                for vendors everywhere
+              <p>
+                &copy; 2026 Zebri. Built for professional wedding MCs and
+                celebrants.
               </p>
+              <div className="flex items-center gap-4">
+                <a href="#" className="hover:text-gray-300 transition-colors">
+                  Privacy
+                </a>
+                <a href="#" className="hover:text-gray-300 transition-colors">
+                  Terms
+                </a>
+              </div>
             </div>
           </div>
         </footer>
