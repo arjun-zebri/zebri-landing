@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 export function FAQ() {
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -19,7 +20,7 @@ export function FAQ() {
     {
       id: "pricing",
       q: "How much does Zebri cost?",
-      a: "Zebri has three plans. Free gets you up to 5 active couples with CRM, quotes, invoices, and payment links. Starter is $49/month and adds unlimited couples, task management, the couple portal, song selection, and file transfer. Pro is $89/month and adds Pulse, Event Mode, dedicated account manager with priority support, and up to 5 team members. All paid plans include a 14-day free trial.",
+      a: "Zebri has three plans. Free includes CRM, quotes, invoices, and payment links. Starter is $49/month and adds task management, the couple portal, song selection, and file transfer. Pro is $89/month and adds Pulse, Event Mode, and dedicated account support. All paid plans include a 14-day free trial.",
     },
     {
       id: "free-trial",
@@ -54,7 +55,7 @@ export function FAQ() {
   ];
 
   return (
-    <section className="py-20 px-4 md:py-32 bg-white">
+    <section className="py-20 px-4 md:py-32">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-[2.5rem] md:text-[2.75rem] font-semibold text-gray-900 leading-tight tracking-tight mb-12 md:mb-16">
           Questions.
@@ -74,25 +75,17 @@ export function FAQ() {
                   {faq.q}
                 </span>
                 <span className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 group-hover:bg-gray-200 flex items-center justify-center transition-colors">
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
+                  <ChevronDown
+                    size={12}
                     className={`text-gray-500 transition-transform duration-200 ${
                       expanded === faq.id ? "rotate-180" : ""
                     }`}
-                  >
-                    <path d="m6 9 6 6 6-6" />
-                  </svg>
+                  />
                 </span>
               </button>
 
               <div
-                className={`overflow-hidden transition-all duration-200 ${
+                className={`overflow-hidden transition-[max-height] duration-200 ease-in-out ${
                   expanded === faq.id ? "max-h-48 pb-5 md:pb-6" : "max-h-0"
                 }`}
               >

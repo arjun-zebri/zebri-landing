@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Nav } from "@/components/ui/Nav";
+import { getAllPosts, formatDate } from "@/lib/blog";
 
 export const metadata = {
   title: "Blog | Zebri",
@@ -8,6 +9,8 @@ export const metadata = {
 };
 
 export default function BlogPage() {
+  const posts = getAllPosts();
+
   return (
     <>
       <Nav />
@@ -18,29 +21,41 @@ export default function BlogPage() {
             <p className="text-xs font-semibold text-[#6B7280] uppercase tracking-widest mb-3">
               Blog
             </p>
-            <h1 className="text-[2rem] md:text-[2.5rem] font-semibold text-gray-900 leading-tight tracking-tight mb-4">
-              Coming soon.
+            <h1 className="text-[2rem] md:text-[2.5rem] font-semibold text-gray-900 leading-tight tracking-tight">
+              For professional wedding MCs.
             </h1>
-            <p className="text-base text-[#6B7280] leading-relaxed">
-              We&apos;re working on practical guides for professional wedding MCs. Check back soon.
-            </p>
           </div>
 
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-900 hover:text-gray-600 transition-colors"
-          >
-            ← Back to Zebri
-          </Link>
+          {/* Post list */}
+          <div className="divide-y divide-gray-100">
+            {posts.map((post) => (
+              <article key={post.slug} className="py-8 first:pt-0">
+                <Link href={`/blog/${post.slug}`} className="group block">
+                  <p className="text-xs text-[#9CA3AF] mb-2">
+                    {formatDate(post.date)} &middot; {post.readTime}
+                  </p>
+                  <h2 className="text-lg font-semibold text-gray-900 group-hover:text-gray-600 transition-colors mb-2 leading-snug">
+                    {post.title}
+                  </h2>
+                  <p className="text-sm text-[#6B7280] leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                  <span className="inline-block mt-3 text-sm font-semibold text-gray-900 group-hover:text-gray-600 transition-colors">
+                    Read &rarr;
+                  </span>
+                </Link>
+              </article>
+            ))}
+          </div>
         </div>
       </main>
 
       <footer className="border-t border-gray-100 py-8 px-4">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <Link href="/" className="text-sm text-[#6B7280] hover:text-gray-900 transition-colors">
-            ← Back to Zebri
+            &larr; Back to Zebri
           </Link>
-          <p className="text-xs text-[#6B7280]">© 2026 Zebri</p>
+          <p className="text-xs text-[#6B7280]">&copy; 2026 Zebri</p>
         </div>
       </footer>
     </>
