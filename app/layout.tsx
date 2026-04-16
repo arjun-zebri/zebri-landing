@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Zebri — Wedding MC Software | CRM, Timeline & Couple Portal",
+  title: "Zebri - Wedding MC Software | CRM, Timeline & Couple Portal",
   description:
     "The command centre for professional Wedding MCs. Manage couples, build shared timelines, run the couple portal, and walk into every wedding ready. Join 47 MCs on the waitlist.",
   keywords: [

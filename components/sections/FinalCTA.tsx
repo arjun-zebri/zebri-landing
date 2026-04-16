@@ -1,6 +1,12 @@
+"use client";
+
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { DemoModal } from "@/components/ui/DemoModal";
 
 export function FinalCTA() {
+  const [demoOpen, setDemoOpen] = useState(false);
+
   return (
     <section
       id="signup"
@@ -39,14 +45,16 @@ export function FinalCTA() {
         </p>
 
         <div className="mt-8">
-          <a
-            href="mailto:arjun@zebri.com.au?subject=Zebri%20Demo%20Request"
-            className="text-sm text-gray-500 hover:text-gray-300 transition-colors underline underline-offset-4 decoration-gray-700 hover:decoration-gray-400"
+          <button
+            onClick={() => setDemoOpen(true)}
+            className="text-sm text-gray-500 hover:text-gray-300 transition-colors underline underline-offset-4 decoration-gray-700 hover:decoration-gray-400 cursor-pointer"
           >
             or Get a Demo
-          </a>
+          </button>
         </div>
       </div>
+
+      <DemoModal open={demoOpen} onClose={() => setDemoOpen(false)} />
     </section>
   );
 }

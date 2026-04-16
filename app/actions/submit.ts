@@ -55,15 +55,21 @@ Timestamp: ${new Date().toISOString()}
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <td style="padding: 8px 0; font-weight: 600; width: 180px;">Name:</td>
-                <td style="padding: 8px 0;">${data.name || "(not provided)"}</td>
+                <td style="padding: 8px 0;">${
+                  data.name || "(not provided)"
+                }</td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; font-weight: 600;">Email:</td>
-                <td style="padding: 8px 0;"><a href="mailto:${data.email}">${data.email}</a></td>
+                <td style="padding: 8px 0;"><a href="mailto:${data.email}">${
+        data.email
+      }</a></td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; font-weight: 600;">Weddings/year:</td>
-                <td style="padding: 8px 0;">${data.weddingsPerYear || "(not provided)"}</td>
+                <td style="padding: 8px 0;">${
+                  data.weddingsPerYear || "(not provided)"
+                }</td>
               </tr>
             </table>
             <p style="color: #71717a; font-size: 12px; margin-top: 20px;">Timestamp: ${new Date().toISOString()}</p>
@@ -110,7 +116,7 @@ export async function submitDemoRequest(
 
   try {
     await resend.emails.send({
-      from: "Zebri <arjun@zebri.com.au>",
+      from: "Zebri <info@app.zebri.com.au>",
       to: ownerEmail,
       replyTo: data.email,
       subject: `Demo request: ${data.name || data.email}`,
@@ -130,11 +136,15 @@ Timestamp: ${new Date().toISOString()}
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <td style="padding: 8px 0; font-weight: 600; width: 180px;">Name:</td>
-                <td style="padding: 8px 0;">${data.name || "(not provided)"}</td>
+                <td style="padding: 8px 0;">${
+                  data.name || "(not provided)"
+                }</td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; font-weight: 600;">Email:</td>
-                <td style="padding: 8px 0;"><a href="mailto:${data.email}">${data.email}</a></td>
+                <td style="padding: 8px 0;"><a href="mailto:${data.email}">${
+        data.email
+      }</a></td>
               </tr>
             </table>
             <p style="color: #71717a; font-size: 12px; margin-top: 20px;">Timestamp: ${new Date().toISOString()}</p>

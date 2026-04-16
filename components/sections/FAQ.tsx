@@ -18,16 +18,6 @@ export function FAQ() {
       a: "Zebri includes end-to-end client management: couple contacts, vendor details, workflow stages, payment tracking, and AI enquiry scoring. But it's not a generic CRM. It's purpose-built for MCs with shared timelines, couple portals, and offline event mode all in one place. Think of it as the operational hub no generic CRM was designed to be.",
     },
     {
-      id: "pricing",
-      q: "How much does Zebri cost?",
-      a: "Zebri has three plans. Free includes CRM, quotes, invoices, and payment links. Starter is $49/month and adds task management, the couple portal, song selection, and file transfer. Pro is $89/month and adds Pulse, Event Mode, and dedicated account support. All paid plans include a 14-day free trial.",
-    },
-    {
-      id: "free-trial",
-      q: "Is there a free trial?",
-      a: "Yes. Starter and Pro both include a 14-day free trial. No credit card required to start. You get full access to every feature in your plan during the trial period.",
-    },
-    {
       id: "cancel",
       q: "Can I cancel anytime?",
       a: "Yes. No lock-in, no cancellation fees. Cancel from your account settings in under 30 seconds. If you cancel, you keep access until the end of your billing period.",

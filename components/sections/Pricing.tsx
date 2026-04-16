@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Minus } from "lucide-react";
+import { Check, X } from "lucide-react";
 
 const CHECK_ICON = (
   <Check size={14} className="text-emerald-600 flex-shrink-0" />
 );
 
-const DASH_ICON = <Minus size={14} className="text-gray-300 flex-shrink-0" />;
+const DASH_ICON = <X size={14} className="text-gray-300 flex-shrink-0" />;
 
 interface PlanFeature {
   label: string;
@@ -33,9 +33,10 @@ const features: PlanFeature[] = [
     starter: true,
     pro: true,
   },
+  { label: "Timeline Builder", free: false, starter: true, pro: true },
   { label: "Pulse", free: false, starter: false, pro: true, comingSoon: true },
   { label: "Event Mode", free: false, starter: false, pro: true, comingSoon: true },
-  { label: "Up to 5 team members", free: false, starter: false, pro: true },
+  { label: "Up to 5 team members", free: false, starter: false, pro: true, comingSoon: true },
   {
     label: "Dedicated account manager & priority support",
     free: false,
@@ -49,7 +50,7 @@ export function Pricing() {
 
   const plans = [
     {
-      name: "Free",
+      name: "Starter",
       price: { monthly: 0, annual: 0 },
       description: "For MCs getting started.",
       couplesLabel: "Up to 5 couples",
@@ -58,7 +59,7 @@ export function Pricing() {
       popular: false,
     },
     {
-      name: "Starter",
+      name: "Pro",
       price: { monthly: 49, annual: 39 },
       description: "For working MCs building their business.",
       couplesLabel: "Unlimited couples",
@@ -67,9 +68,9 @@ export function Pricing() {
       popular: true,
     },
     {
-      name: "Pro",
+      name: "Max",
       price: { monthly: 89, annual: 71 },
-      description: "For full-time MCs who want every advantage.",
+      description: "For full-time MCs running a business.",
       couplesLabel: "Unlimited couples",
       cta: "Start Free Trial",
       ctaHref: "https://app.zebri.com.au/signup",
@@ -158,7 +159,7 @@ export function Pricing() {
                     {plan.name}
                   </h3>
                   <div className="flex items-baseline gap-1 mb-2">
-                    {price === 0 ? (
+                    {plan.price.monthly === 0 ? (
                       <span className="text-3xl font-semibold text-gray-900">
                         Free
                       </span>
@@ -188,7 +189,7 @@ export function Pricing() {
                 >
                   {plan.cta}
                 </a>
-                <p className={`text-center text-[11px] -mt-3 mb-5 ${plan.name !== "Free" ? "text-[#6B7280]" : "invisible"}`}>
+                <p className={`text-center text-[11px] -mt-3 mb-5 ${plan.price.monthly !== 0 ? "text-[#6B7280]" : "invisible"}`}>
                   14-day free trial · No credit card required
                 </p>
 
@@ -205,9 +206,9 @@ export function Pricing() {
                   </li>
                   {features.map((feature) => {
                     const included =
-                      plan.name === "Free"
+                      plan.name === "Starter"
                         ? feature.free
-                        : plan.name === "Starter"
+                        : plan.name === "Pro"
                         ? feature.starter
                         : feature.pro;
                     return (

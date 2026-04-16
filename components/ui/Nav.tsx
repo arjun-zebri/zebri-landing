@@ -11,7 +11,7 @@ export function Nav() {
       <nav aria-label="Main navigation" className="sticky top-0 z-50 h-14 border-b border-gray-100 bg-white">
         <div className="max-w-6xl mx-auto px-4 h-full flex items-center justify-between">
           {/* Logo */}
-          <img src="/zebri-logo.svg" alt="zebri" className="h-6" />
+          <a href="/"><img src="/zebri-logo.svg" alt="Zebri" className="h-6" /></a>
 
           {/* Nav links */}
           <div className="hidden md:flex items-center gap-6">
@@ -75,7 +75,7 @@ export function Nav() {
         >
           {/* Drawer header */}
           <div className="flex items-center justify-between px-5 h-14 border-b border-gray-100">
-            <img src="/zebri-logo.svg" alt="zebri" className="h-5" />
+            <a href="/"><img src="/zebri-logo.svg" alt="Zebri" className="h-5" /></a>
             <button
               onClick={() => setMenuOpen(false)}
               className="w-8 h-8 flex items-center justify-center rounded-md hover:bg-gray-100 transition-colors"

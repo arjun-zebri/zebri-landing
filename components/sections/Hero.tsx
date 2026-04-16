@@ -5,8 +5,8 @@ import { ArrowRight, MapPin, Users, ShieldCheck } from "lucide-react";
 import { DemoModal } from "@/components/ui/DemoModal";
 
 const validation = [
-  { icon: MapPin, text: "Built in Australia" },
-  { icon: Users, text: "Designed by MCs and celebrants" },
+  { icon: MapPin, text: "Built in Australia." },
+  { icon: Users, text: "Designed by MCs and celebrants." },
   { icon: ShieldCheck, text: "Your data stays yours. Always." },
 ];
 
@@ -45,7 +45,7 @@ export function Hero() {
               </a>
               <button
                 onClick={() => setDemoOpen(true)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-md border border-gray-300 hover:border-gray-500 bg-white text-gray-700 hover:text-gray-900 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-md border border-gray-300 hover:border-gray-500 bg-white text-gray-700 hover:text-gray-900 transition-colors cursor-pointer"
               >
                 Get a Demo
               </button>

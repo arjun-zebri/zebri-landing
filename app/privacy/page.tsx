@@ -27,7 +27,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-base font-semibold text-gray-900 mb-3">1. Who we are</h2>
               <p className="text-[#6B7280]">
-                Zebri is operated by Arjun Punekar ABN [pending registration], based in Victoria, Australia
+                Zebri is operated by Knotify Pty Ltd (ABN 64 674 946 804), based in Sydney, New South Wales, Australia
                 (&ldquo;Zebri&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;). We provide a
                 software-as-a-service platform for professional wedding MCs and celebrants
                 at <strong>zebri.com.au</strong> and <strong>app.zebri.com.au</strong>.
@@ -231,7 +231,7 @@ export default function PrivacyPage() {
                 <li><strong>Complaints:</strong> lodge a complaint with the Office of the Australian Information Commissioner (OAIC) at <strong>oaic.gov.au</strong> if you believe your privacy rights have been breached</li>
               </ul>
               <p className="text-[#6B7280] mt-3">
-                To exercise any of these rights, contact us at <strong>arjun@zebri.com.au</strong>.
+                To exercise any of these rights, contact us at <strong>hello@zebri.com.au</strong>.
                 We will respond within 30 days.
               </p>
             </section>
@@ -259,8 +259,8 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-base font-semibold text-gray-900 mb-3">13. Governing law</h2>
               <p className="text-[#6B7280]">
-                This Privacy Policy is governed by the laws of Victoria, Australia. Any disputes
-                relating to privacy will be subject to the jurisdiction of the courts of Victoria.
+                This Privacy Policy is governed by the laws of New South Wales, Australia. Any disputes
+                relating to privacy will be subject to the jurisdiction of the courts of New South Wales.
               </p>
             </section>
 
@@ -271,13 +271,13 @@ export default function PrivacyPage() {
                 how we handle your personal information, please contact:
               </p>
               <div className="mt-3 p-4 bg-gray-50 rounded-lg text-[#6B7280]">
-                <p><strong className="text-gray-900">Arjun Punekar</strong></p>
-                <p>Zebri</p>
-                <p>Victoria, Australia</p>
+                <p><strong className="text-gray-900">Knotify Pty Ltd</strong></p>
+                <p>ABN 64 674 946 804</p>
+                <p>Sydney, New South Wales, Australia</p>
                 <p>
                   Email:{" "}
-                  <a href="mailto:arjun@zebri.com.au" className="text-gray-900 underline underline-offset-2">
-                    arjun@zebri.com.au
+                  <a href="mailto:hello@zebri.com.au" className="text-gray-900 underline underline-offset-2">
+                    hello@zebri.com.au
                   </a>
                 </p>
               </div>

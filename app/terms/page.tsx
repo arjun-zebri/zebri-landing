@@ -28,8 +28,8 @@ export default function TermsPage() {
               <h2 className="text-base font-semibold text-gray-900 mb-3">1. Introduction and acceptance</h2>
               <p className="text-[#6B7280]">
                 These Terms of Service (&ldquo;Terms&rdquo;) constitute a legally binding agreement between
-                you (&ldquo;User&rdquo;, &ldquo;you&rdquo;, or &ldquo;your&rdquo;) and Arjun Punekar ABN [pending
-                registration] trading as Zebri (&ldquo;Zebri&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or
+                you (&ldquo;User&rdquo;, &ldquo;you&rdquo;, or &ldquo;your&rdquo;) and Knotify Pty Ltd (ABN 64 674 946 804)
+                trading as Zebri (&ldquo;Zebri&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or
                 &ldquo;our&rdquo;), governing your access to and use of the Zebri software platform
                 at <strong>zebri.com.au</strong> and <strong>app.zebri.com.au</strong> (the
                 &ldquo;Service&rdquo;).
@@ -48,7 +48,7 @@ export default function TermsPage() {
               <ul className="list-disc pl-5 text-[#6B7280] space-y-2 mt-3">
                 <li><strong>&ldquo;Service&rdquo;</strong> means the Zebri software platform, including all features, functionality, and content provided through it</li>
                 <li><strong>&ldquo;Account&rdquo;</strong> means the account you create to access the Service</li>
-                <li><strong>&ldquo;Subscription&rdquo;</strong> means the plan (Free, Starter, or Pro) under which you access the Service</li>
+                <li><strong>&ldquo;Subscription&rdquo;</strong> means the plan (Free, Pro, or Max) under which you access the Service</li>
                 <li><strong>&ldquo;Content&rdquo;</strong> means any data, text, files, images, or other materials you create, upload, or store in the Service</li>
                 <li><strong>&ldquo;Couple Data&rdquo;</strong> means personal information about your clients (couples and related parties) that you enter into the Service</li>
               </ul>
@@ -63,7 +63,7 @@ export default function TermsPage() {
                 <li>Be at least 18 years of age</li>
                 <li>Provide accurate, complete, and current registration information</li>
                 <li>Maintain the security of your password and accept all risks of unauthorised access to your account</li>
-                <li>Promptly notify us of any unauthorised use of your account at arjun@zebri.com.au</li>
+                <li>Promptly notify us of any unauthorised use of your account at hello@zebri.com.au</li>
                 <li>Not create more than one account per person without our express written consent</li>
               </ul>
               <p className="text-[#6B7280] mt-3">
@@ -77,7 +77,7 @@ export default function TermsPage() {
 
               <h3 className="text-sm font-semibold text-gray-800 mb-2 mt-4">4.1 Plans</h3>
               <p className="text-[#6B7280]">
-                Zebri offers a Free plan and paid plans (Starter and Pro). Features available under
+                Zebri offers a Free plan and paid plans (Pro and Max). Features available under
                 each plan are described on our pricing page at zebri.com.au/&#35;pricing. We reserve
                 the right to modify plan features with 30 days&apos; notice.
               </p>
@@ -253,7 +253,7 @@ export default function TermsPage() {
               <h2 className="text-base font-semibold text-gray-900 mb-3">13. Termination</h2>
               <p className="text-[#6B7280]">
                 <strong>By you:</strong> You may close your account at any time by contacting us at
-                arjun@zebri.com.au or using the account closure option in your settings.
+                hello@zebri.com.au or using the account closure option in your settings.
               </p>
               <p className="text-[#6B7280] mt-3">
                 <strong>By us:</strong> We may suspend or terminate your access to the Service with
@@ -272,14 +272,14 @@ export default function TermsPage() {
             <section>
               <h2 className="text-base font-semibold text-gray-900 mb-3">14. Governing law and disputes</h2>
               <p className="text-[#6B7280]">
-                These Terms are governed by the laws of Victoria, Australia, without regard to its
+                These Terms are governed by the laws of New South Wales, Australia, without regard to its
                 conflict of law provisions. Any dispute arising out of or relating to these Terms
                 or the Service will be subject to the exclusive jurisdiction of the courts of
-                Victoria, Australia.
+                New South Wales, Australia.
               </p>
               <p className="text-[#6B7280] mt-3">
                 Before initiating formal legal proceedings, you agree to attempt to resolve any
-                dispute informally by contacting us at arjun@zebri.com.au. We will use reasonable
+                dispute informally by contacting us at hello@zebri.com.au. We will use reasonable
                 efforts to resolve the dispute within 30 days.
               </p>
             </section>
@@ -312,13 +312,13 @@ export default function TermsPage() {
                 If you have any questions about these Terms, please contact:
               </p>
               <div className="mt-3 p-4 bg-gray-50 rounded-lg text-[#6B7280]">
-                <p><strong className="text-gray-900">Arjun Punekar</strong></p>
-                <p>Zebri</p>
-                <p>Victoria, Australia</p>
+                <p><strong className="text-gray-900">Knotify Pty Ltd</strong></p>
+                <p>ABN 64 674 946 804</p>
+                <p>New South Wales, Australia</p>
                 <p>
                   Email:{" "}
-                  <a href="mailto:arjun@zebri.com.au" className="text-gray-900 underline underline-offset-2">
-                    arjun@zebri.com.au
+                  <a href="mailto:hello@zebri.com.au" className="text-gray-900 underline underline-offset-2">
+                    hello@zebri.com.au
                   </a>
                 </p>
               </div>
