@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getPostBySlug(slug);
   if (!post) return {};
   return {
-    title: `${post.title} | Zebri Blog`,
-    description: post.excerpt,
+    title: `${post.metaTitle ?? post.title} | Zebri Blog`,
+    description: post.metaDescription ?? post.excerpt,
   };
 }
 
@@ -26,7 +26,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <>
       <Nav />
       <main className="min-h-screen bg-white">
-        <div className="max-w-2xl mx-auto px-4 py-16 md:py-24">
+        <div className="max-w-2xl mx-auto px-4 pt-8 pb-16 md:pt-10 md:pb-24">
           {/* Back link */}
           <Link
             href="/blog"
@@ -45,12 +45,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <span className="text-gray-200">·</span>
               <span className="text-xs text-[#6B7280]">{post.readTime}</span>
             </div>
-            <h1 className="text-[1.75rem] md:text-[2.25rem] font-semibold text-gray-900 leading-tight tracking-tight mb-4">
+            <h1 className="text-[1.75rem] md:text-[2.25rem] font-semibold text-gray-900 leading-tight tracking-tight mb-0">
               {post.title}
             </h1>
-            <p className="text-base text-[#6B7280] leading-relaxed">
-              {post.excerpt}
-            </p>
           </header>
 
           <hr className="border-gray-100 mb-10" />

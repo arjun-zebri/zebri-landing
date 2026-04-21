@@ -1,6 +1,8 @@
 export interface Post {
   slug: string;
   title: string;
+  metaTitle?: string;
+  metaDescription?: string;
   date: string;
   excerpt: string;
   readTime: string;
@@ -9,173 +11,98 @@ export interface Post {
 
 const posts: Post[] = [
   {
-    slug: "mc-pre-wedding-checklist",
-    title: "The MC's 72-Hour Pre-Wedding Checklist",
-    date: "2026-03-10",
+    slug: "celebrant-crm-vs-planner-software",
+    title: "A planner's CRM was built for a different business",
+    metaTitle: "Wedding celebrant CRM vs planner software: why it matters",
+    metaDescription:
+      "Most celebrants use tools built for planners. Here's where the mismatch costs you time per booking, and three criteria for a tool built for the MC.",
+    date: "2026-04-21",
     excerpt:
-      "Three days out is when small gaps become big problems. Here's exactly what to confirm — and who to call — before you walk in the door.",
-    readTime: "5 min read",
+      "Most celebrants reach for CRMs built for wedding planners because that's what gets recommended. But a planner's tool was designed for different tasks, a different client dynamic, and a different day-of reality. Here's where the mismatch costs you.",
+    readTime: "6 min read",
     content: `
-The week before a wedding, most MCs feel reasonably prepared. The run sheet is drafted. The couple has approved it. You know the venue.
+<p>Most celebrants reach for CRMs built for wedding planners because that's what gets recommended. But a planner's tool was designed for different tasks, a different client dynamic, and a different day-of reality. Here's where the mismatch costs you, and three things to look for in software actually built for the MC.</p>
 
-Then the night before arrives and you're chasing the DJ's new phone number, discovering the bride's grandmother's name is spelled differently in three places, and wondering if the venue coordinator who emailed you six weeks ago is the same person who'll actually be there on the day.
+<h2>The Saturday afternoon rebuild</h2>
 
-Seventy-two hours is enough time to fix almost any problem. Here's the checklist.
+<p>It's Saturday at 2pm. Ceremony's at 4. You open Dubsado on your laptop to pull the run sheet and realise, for the third time this month, it doesn't load properly on your phone. So you do what you always do. You open Notes, retype the timeline by hand, paste in the couple's names, double-check the processional order, and save it to your phone.</p>
 
-## The couple
+<p>Forty minutes. Gone.</p>
 
-**Confirm names and pronunciations.** Ask the couple to read your script introduction out loud, or record themselves saying the names you'll be calling out. This catches pronunciation drift that email can't. Groom's grandmother flew in from Seville? Find out now whether it's SEV-ee-ah or seh-VEE-yah.
+<p>That's not a bad day. That's the tool. Dubsado is a well-built CRM, but it was designed for wedding planners. Planners don't need their run sheet on a phone because they're not walking down an aisle with it. You are.</p>
 
-**Lock the run sheet.** Send the final version and explicitly ask for a reply confirming it's approved. "Looks good" in a text message three weeks ago does not count. You want a confirmed, timestamped final version.
+<h2>Why the planner software you reach for wasn't for you</h2>
 
-**Confirm song titles.** Every song that plays during your ceremony or reception should have the exact title and artist confirmed. "Something Ed Sheeran" is not a brief. Get the Spotify link if you can.
+<p>When you're starting out, the admin advice is always the same. "What do you use?" The answers: Dubsado. HoneyBook. Aisle Planner. These tools have real visibility in the wedding industry, and they're genuinely good for the person they were built for.</p>
 
-**Ask about last-minute changes.** Family dynamics shift. Someone who was supposed to give a speech might now be arriving late. A surprise element might have been added. Give them an explicit opening: "Is there anything that's changed or that I should know that isn't in the run sheet?"
+<p>That person is a planner. And a planner's business is structurally different from yours.</p>
 
-**Get an emergency contact.** Not the couple. Their planner, a reliable family member, or the best man — someone reachable on the day who can make small decisions without pulling the couple aside.
+<p>These tools dominate because planners have been in the industry longer, with bigger referral networks and a clearer presence in Google search results. When you search "wedding industry CRM," you're reading reviews written by planners, for planners. The fact that you're a celebrant is treated as a rounding error.</p>
 
-## The vendors
+<p>A planner coordinates dozens of vendors and manages a venue on behalf of a couple. They rarely need to hold a microphone. Their CRM is built around vendor management and client approval chains. That's valid work. It's just not your work.</p>
 
-**Call the DJ.** Not email. Call. Confirm the run of play, the exact cue for each moment (song title, not just "walking in song"), and how you'll communicate during the event. Agree on a signal for when you need them to fade out early.
+<p>Your admin isn't about coordinating a team. It's about knowing the couple's names and capturing them correctly. It's about a run sheet that holds up when the venue wifi drops. And it's about getting back to an enquiry before it goes cold. Those are different problems, and most planner CRMs weren't designed for them.</p>
 
-**Call or message the photographer.** They need to know your exact running order so they're in position for every key moment. Send them the confirmed run sheet. Ask if they have any timing requests around natural light or specific shots.
+<h2>The field that isn't there</h2>
 
-**Call the venue coordinator.** Confirm who you're dealing with on the day — it may not be who you've been emailing. Ask about: AV setup and who controls it, microphone setup and backup mics, where you'll be stationed, whether there are any venue-specific announcements you need to make (emergency exits, parking, etc.), and whether the kitchen is aware of your timeline.
+<p>Here's the most obvious gap: pronunciation.</p>
 
-**Confirm the caterer's timing.** Entree service, main course, cake cutting — these all affect your program. If the caterer is running on their own clock and you're not aligned, the whole evening stutters.
+<p>You need to know how to say every name in the ceremony. The couple, the parents, the bridal party, anyone getting a mention. Get it wrong and you don't get a second take.</p>
 
-## Your materials
+<p>A planner's CRM has a field for everything. Vendor contact, payment schedule, dietary requirements, floor plan upload. It doesn't have a field for "how do you pronounce your mother's name?" Because a planner doesn't say her name out loud. You do.</p>
 
-**Print everything.** Your run sheet, your script, key contact numbers. Phones die. Reception drops out. A printed backup has never failed anyone.
+<p>So you work around it. A note in the contact. A comment on the job. A sticky note on your desk. Something works until it doesn't, and on the day you're pulling from four different places.</p>
 
-**Prepare an offline copy.** If you use a digital tool, make sure everything is cached and accessible without internet. Venues with stone walls, basements, or rural settings will test your connectivity.
+<p>The same gap shows up in processional cues. A planner's CRM tracks vendor arrival times. Your run sheet tracks the exact order of the bridal party, which song plays for which walk, who carries the rings. These aren't edge cases in your job. They're the job.</p>
 
-**Charge every device.** Phone, backup phone, tablet if you use one. Bring a portable charger.
+<h2>The approval flow that doesn't fit</h2>
 
-**Pack early.** Lay out everything the night before: run sheet print, phone charger, backup charger, business cards, any props or cards you use. Don't leave it to the morning of.
+<p>Planner software typically has a client-approval workflow built around sign-offs. The client reviews a document, approves or requests changes, and the record is timestamped. That works well for a florist's quote or a catering proposal. It doesn't map to a ceremony script that changes three times before Saturday.</p>
 
-## The brief check the day before
+<p>Your approval flow is different. You need the couple to review the run sheet, but you also need to iterate it with them, not just collect a sign-off. The timeline changes when the venue moves the start time. The script changes when the family situation changes. You're not issuing contracts for vendor services. You're collaborating on a ceremony that gets one chance to be right.</p>
 
-Do one final pass the night before. Read your opening script out loud. Say every name. Time yourself on any section you're uncertain about. If something feels off, it's still fixable at 10pm the night before. It is not fixable at 3:15pm while guests are being seated.
+<p>For you, the run sheet is a living document until 72 hours out. A "client approved v1.2 on 12 April" timestamp doesn't capture that. The approval tools in planner software treat your couple like a client in a project management system. They're two people counting on you to get the most important hour of their life right. That relationship doesn't map neatly onto a checkbox.</p>
 
-The MCs who never have a bad day on the floor aren't luckier than the rest. They're just more systematic in the days before.
-    `.trim(),
-  },
-  {
-    slug: "handling-running-late-ceremony",
-    title: "How to Handle a Running-Late Ceremony Without Losing the Room",
-    date: "2026-02-24",
-    excerpt:
-      "The bridal car is stuck in traffic. Guests have been seated for 20 minutes. Here's how to hold the room without making anyone anxious.",
-    readTime: "4 min read",
-    content: `
-It happens at roughly one in four weddings: the ceremony is meant to start at 3pm and at 3:07 you're still waiting. Guests are seated, the string quartet has looped through their repertoire once already, and everyone is watching you.
+<h2>No offline mode, and what that costs on the day</h2>
 
-What you do in the next ten minutes determines whether the delay becomes a story people laugh about or a tension that colours the whole afternoon.
+<p>A planner runs their event from a laptop at the venue. They've got wifi, a power point, a desk. They can refresh a browser tab.</p>
 
-## Read the room first
+<p>You're standing at the front of a ceremony hall with one weak bar of signal on a good day. Your run sheet needs to be on your phone, working whether the wifi works or not.</p>
 
-Before you say anything, take a moment to read the energy. Are guests relaxed and chatting? Or are they starting to turn around, check phones, and whisper to each other? The former just needs holding. The latter needs managing.
+<p>Most planner CRMs are cloud-only. The run sheet lives in a browser. If signal drops, so does your visibility into the timeline. So you export to PDF, email it to yourself, download it, screenshot the important sections, and paste those into Notes.</p>
 
-A relaxed room can wait five more minutes with no intervention from you. An anxious room needs a human voice — yours — to tell them everything is fine.
+<p>That workaround takes fifteen minutes the night before and another twenty on the day. It's invisible time. It doesn't feel like a problem with the tool because you've always done it this way. But that's thirty-five minutes per wedding spent compensating for software that wasn't built for your situation.</p>
 
-## What to say (and how to say it)
+<h2>The invisible tax per booking</h2>
 
-The most important thing you can communicate is calm confidence. You are not anxious. You are not apologising. You are simply providing context.
+<p>Add it up:</p>
 
-A line that works well: *"Good afternoon everyone — we're going to give it just a few more minutes before we get started. We appreciate your patience, and I promise it'll be worth the wait."*
+<ul>
+<li>40 minutes rebuilding the run sheet into a phone-friendly format</li>
+<li>15 minutes copying pronunciation notes from three different places</li>
+<li>20 minutes sending a PDF for approval, then updating it manually when they reply with changes</li>
+<li>10 minutes hunting for the DJ's number buried in a vendor contact tab</li>
+</ul>
 
-What that line does:
-- It acknowledges the delay without making it seem serious
-- It signals that you're in control and things are moving
-- It creates a slight anticipatory build ("worth the wait")
+<p>That's an hour and forty-five minutes per wedding spent working around the tool. At six weddings a month, that's over ten hours of invisible admin. Not on the ceremony. On the software.</p>
 
-What to avoid:
-- Apologising repeatedly — it signals that something has gone wrong
-- Mentioning the specific reason unless it's benign ("the bridal party is just finishing up some photos")
-- Giving a specific time ("we'll start in five minutes") unless you're certain — if that deadline slips you've created a second delay
+<h2>Three criteria for a tool built for the MC</h2>
 
-## Use the time
+<p>When you're evaluating whether a CRM actually fits, check three things.</p>
 
-If you have ten minutes, use them. This is an opportunity to do something small that warms the room:
+<p>First, it has a pronunciation field, not a workaround. The field lives in the couple's record, visible in the run sheet, without any copying or pasting.</p>
 
-- Welcome guests from out of town and ask them to introduce themselves to the people around them
-- Share a brief, warm story about the couple that isn't in your main script
-- Invite guests to find their ceremony program if they haven't yet
+<p>Second, the run sheet works offline. Not "you can export to PDF." Offline, natively, on your phone, with the current cue visible and the ability to advance through it without a data connection.</p>
 
-This transforms dead time into connecting time. Guests stop watching the door and start talking to each other.
+<p>Third, the booking stages reflect your business, not a planner's. "Enquiry, quote, contract, ceremony prep, delivered" is a celebrant's flow. Not "discovery call, venue walk-through, vendor coordination, event week."</p>
 
-## Communicating with vendors quietly
+<p>Those three things tell you whether the software was built for you or adapted for you. Adapted is fine for a while. It stops being fine when you're retyping run sheets on a Saturday afternoon.</p>
 
-While you're holding the room, someone needs to be getting real information. That should be the planner, the coordinator, or your emergency contact — not you.
+<h2>What to do before the next enquiry</h2>
 
-Agree before the day on how this works. A simple text system works fine: "5 minutes out", "2 minutes out", "starting now". If you're working without a planner, have a brief with the venue coordinator in the morning: "If we're running late, can you keep me updated so I can manage the room?"
+<p>Zebri is built for the MC. It's got a <a href="https://zebri.com.au/">pronunciation field in every couple's record</a>, a run sheet that loads offline in <a href="https://zebri.com.au/">Event Mode</a>, and booking stages that match how a celebrant actually works. There's a <a href="https://www.zebri.com.au/#pricing">14-day free trial, no card required</a>.</p>
 
-## When you need to cut, not compress
-
-Sometimes the run sheet needs to flex, not just shift. If you're 20 minutes behind by the time the ceremony starts, something has to give. Have a quiet conversation with the couple in the days before about what's flexible: Can the cocktail hour overlap with photos? Can one speech move? Can the entrée service begin earlier?
-
-The couple should decide this in advance, not in a stressful corridor conversation five minutes before dinner.
-
-## The bridging line
-
-The moment the bridal party arrives is your transition. You need to move from holding mode to starting mode cleanly. A good bridging line:
-
-*"Alright — I think we're ready. If everyone could please stand and face the entrance..."*
-
-Clean, direct, and it gives everyone something to do. The delay is already forgotten. The wedding has begun.
-
-The MCs who handle delays best aren't the ones who never face them. They're the ones who've thought through the scenario before it happens.
-    `.trim(),
-  },
-  {
-    slug: "why-spreadsheets-cost-bookings",
-    title: "Why Spreadsheets Are Costing You Bookings",
-    date: "2026-02-10",
-    excerpt:
-      "Every minute you spend on admin is a minute you're not following up with a lead. Here's what the hidden cost actually looks like — and how to fix it.",
-    readTime: "4 min read",
-    content: `
-Most wedding MCs don't think of themselves as running a business. They think of themselves as performers, hosts, storytellers — which is true. But between the weddings, they're also an enquiry manager, an invoice chaser, a run sheet builder, and an inbox processor.
-
-That admin load isn't just annoying. It's costing you bookings.
-
-## The response time problem
-
-Couples enquiring about an MC shortlist multiple people. Research consistently shows that the first person to respond meaningfully — not just "got your enquiry, will be in touch" — has a significant advantage in converting the booking.
-
-When your enquiry information is spread across email, a notes app, a spreadsheet, and three WhatsApp threads, the time between receiving an enquiry and responding meaningfully stretches out. You have to re-read the email, find the right spreadsheet tab, work out what stage they're at, and construct a thoughtful reply.
-
-That process, scattered across tools, adds friction to every single interaction. And friction is bookings lost.
-
-## The credibility tax
-
-Beyond response speed, the way you manage the relationship before the wedding signals to couples what working with you will feel like.
-
-If you're sending a run sheet as a PDF attachment that gets emailed back with tracked changes, the couple is already experiencing your admin system. If you send them a shared live link where changes are reflected in real time, you've communicated something about the quality of your operation.
-
-Run sheets, invoices, portals — these are all touchpoints. Each one is either reinforcing your professionalism or quietly undermining it.
-
-## What the hidden cost looks like
-
-Let's run a rough scenario. Suppose you're handling 30 weddings a year. For each wedding, you spend:
-
-- 45 minutes chasing couple details that should have been collected upfront
-- 30 minutes rebuilding or reformatting the run sheet after late changes
-- 20 minutes hunting for vendor contacts across emails and messages
-- 15 minutes creating or updating an invoice that could have been templated
-
-That's roughly 110 minutes of pure admin per wedding. Across 30 weddings, that's 55 hours a year — more than a full working week — spent on tasks that don't require your skills and don't serve your clients.
-
-That time could be follow-up calls to warm leads. It could be refining scripts. It could be sleep the night before a wedding.
-
-## What a proper system changes
-
-When enquiries land in a pipeline instead of an inbox, you see every lead at a glance and know exactly what's outstanding for each one. When couples submit their details through a portal instead of email, you stop being the person who has to chase them. When your run sheet lives at a shareable link instead of in an attachment, version confusion disappears.
-
-None of this requires complicated software. It just requires the right one — a tool built for how wedding MCs actually work, not a generic CRM retrofitted for the purpose.
-
-The MCs who are growing their booking rates aren't necessarily the most talented people in the room. They're often just the most responsive and the most organised. And responsiveness and organisation are, more than anything, a function of what system you're running.
+<p>But even without it, run the three criteria above against whatever tool you're using now. If it fails two of them, the Saturday afternoon rebuild is going to keep happening.</p>
     `.trim(),
   },
 ];
