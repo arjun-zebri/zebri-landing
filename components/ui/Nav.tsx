@@ -24,6 +24,9 @@ export function Nav() {
             <a href="/blog" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
               Blog
             </a>
+            <a href="/news" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+              News
+            </a>
           </div>
 
           {/* Right actions */}
@@ -91,6 +94,7 @@ export function Nav() {
               { label: "Features", href: "#features" },
               { label: "Pricing", href: "#pricing" },
               { label: "Blog", href: "/blog" },
+              { label: "News", href: "/news" },
             ].map(({ label, href }) => (
               <a
                 key={label}

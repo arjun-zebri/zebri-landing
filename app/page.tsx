@@ -49,6 +49,7 @@ export default function Home() {
                     { label: "Features", href: "#features" },
                     { label: "Pricing", href: "#pricing" },
                     { label: "Blog", href: "/blog" },
+                    { label: "News", href: "/news" },
                   ].map(({ label, href }) => (
                     <li key={label}>
                       <a
