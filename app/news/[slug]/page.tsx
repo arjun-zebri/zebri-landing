@@ -127,7 +127,7 @@ export default async function NewsPostPage({
             href="/"
             className="text-sm text-[#6B7280] hover:text-gray-900 transition-colors"
           >
-            Back to Zebri
+            ← Back to Zebri
           </Link>
           <p className="text-xs text-[#6B7280]">&copy; 2026 Zebri</p>
         </div>
