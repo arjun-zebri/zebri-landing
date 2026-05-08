@@ -11,6 +11,80 @@ export interface Post {
 
 const posts: Post[] = [
   {
+    slug: "crm-wrong-for-wedding-celebrants",
+    title: "Your CRM has a field for LinkedIn. Not pronunciation.",
+    metaTitle: "Why CRMs don't work for wedding celebrants | Zebri",
+    metaDescription:
+      "Generic CRMs were built for sales pipelines, not ceremonies. Here's the specific design mismatch that costs you time on every booking.",
+    date: "2026-05-08",
+    excerpt:
+      "Most CRMs feel wrong to celebrants because they were designed for a different job. The status stages, field labels, and notification logic were built for moving deals, not locking run sheets. The friction isn't a bug. It's the software doing exactly what it was designed to do. For someone else.",
+    readTime: "5 min read",
+    content: `
+<p>Six weeks from a Saturday wedding, and you need to double-check the bride's surname. Polish. You wrote down the phonetics at the initial consult. You're certain you wrote them down. But they're not in the email thread (41 messages and counting). Not in the timeline doc. Not in your CRM either. There's no field for it.</p>
+
+<p>There is, however, a field for LinkedIn.</p>
+
+<p>The tool isn't broken. It's working exactly as it was designed. That's the problem.</p>
+
+<h2>CRMs were designed for deals, not ceremonies</h2>
+
+<p>Most booking tools celebrants reach for (HoneyBook, Dubsado, or a generic CRM adapted from someone else's recommendation) were built around one idea: move prospects through a pipeline.</p>
+
+<p>Open any of them and the architecture tells the story. Status stages: Lead, Qualified, Proposal, Won, Lost. Contact fields: Company, Job Title, Deal Source, Probability to Close. Notification logic: "It's been 5 days since last contact. Follow up before you lose this lead."</p>
+
+<p>That language is exactly right for a sales rep tracking revenue opportunities. For a celebrant, it's translation work on every booking.</p>
+
+<p>Your stages aren't Lead and Won. They're Enquiry, Consult Booked, Ceremony Confirmed, Portal Complete, Run Sheet Locked, Ceremony Done. Every time you drag a card through a pipeline that doesn't match your workflow, you're manually mapping your job onto someone else's vocabulary. That takes 30 seconds. Per touch. Across 80 weddings, it compounds into something you notice.</p>
+
+<h2>The field schema wasn't built for your couples</h2>
+
+<p>A standard CRM contact record assumes the contact is a professional lead. Name. Email. Phone. Company. Website. LinkedIn.</p>
+
+<p>Your couples aren't professional leads. They're two people you'll stand in front of on the most important day of their lives, and the information you need from them looks nothing like a B2B contact record.</p>
+
+<p>You need first names and surnames for both partners. Phonetic spellings for every name in the ceremony script. The full bridal party list with correct titles. Processional music choices, with timing notes. Family seating details. The DJ's direct mobile. The venue coordinator's name. The florist's arrival window.</p>
+
+<p>None of that fits in "Company" and "Job Title."</p>
+
+<p>So it ends up somewhere else. A Google Doc, usually. Or a note on your phone. Or a second tab in the spreadsheet you told yourself you'd clean up in January. Now there are three sources of truth, none of them connected. Six weeks out, you're hunting across all three for a pronunciation note you definitely wrote down.</p>
+
+<h2>The notification logic fires for the wrong reasons</h2>
+
+<p>CRM alerts are built for deal velocity. The software wants to know when a prospect hasn't been touched. When a proposal hasn't been opened. When a follow-up is overdue.</p>
+
+<p>Those signals matter in a sales context. They're the wrong signals for a celebrant.</p>
+
+<p>What you need is ceremony-countdown logic. The <a href="https://zebri.com.au/">couple portal</a> should be complete two weeks out. The run sheet should be <a href="https://zebri.com.au/">locked 72 hours before ceremony</a>. Vendor contacts confirmed a week before. None of those reminders exist in a sales pipeline model, so you build them separately. A calendar. A recurring sticky note. A checklist in your notes app. The morning before a wedding, you're not checking one dashboard. You're opening four different apps trying to remember which one has the florist's number.</p>
+
+<h2>The friction isn't bad design. It's correct design for the wrong job.</h2>
+
+<p>This is the part worth saying plainly: the awkwardness you feel in these tools is not a sign that the designers did poor work. HoneyBook is built for photographers managing retainer clients with multiple deliverables. Dubsado is built for freelance studios invoicing, proposing, and automating client onboarding. Both are well-designed for the work they were built to do.</p>
+
+<p>You just don't do that work.</p>
+
+<p>And the cost of the mismatch is specific. Three minutes searching for a pronunciation note. Two minutes translating "Ceremony Confirmed" into whatever stage your CRM calls it. Ten minutes building a reminder cadence that should already exist in the tool. Per booking, across a full calendar, it adds up to a day of admin you shouldn't be spending.</p>
+
+<h2>What purpose-fit design looks like</h2>
+
+<p>Zebri is built around the ceremony, not the pipeline.</p>
+
+<p>The couple profile opens on the ceremony date, venue, and a booking status that reflects your actual flow. There's a dedicated tab for collecting first names, surnames, and phonetic pronunciations for everyone in the ceremony script. The <a href="https://zebri.com.au/">Timeline Builder</a> holds the run sheet, shares one version with the couple for approval, and gives the planner and venue the same link. Payments and contracts live in the same place the booking does.</p>
+
+<p>There's no LinkedIn field. There's no "Probability to Close."</p>
+
+<p>There is a field for how to say Kowalczyk.</p>
+
+<p>The reminder logic is built around the ceremony countdown: what needs to be in before two weeks out, what should be locked by Thursday, what to check the morning of. Not deal velocity. Ceremony readiness.</p>
+
+<h2>The next booking you confirm</h2>
+
+<p>You don't need to change your whole setup this week. But the next time you're hunting for a pronunciation note in a Gmail thread, or dragging a booking through a pipeline stage that means nothing in your actual work, notice what's happening. You're translating your job into a tool that wasn't built for you.</p>
+
+<p>If you want to see what a ceremony-first tool looks like, the <a href="https://www.zebri.com.au/#pricing">14-day trial is free</a>. No card. No lock-in. Try it on the next booking you confirm.</p>
+    `.trim(),
+  },
+  {
     slug: "celebrant-crm-vs-planner-software",
     title: "A planner's CRM was built for a different business",
     metaTitle: "Wedding celebrant CRM vs planner software: why it matters",
