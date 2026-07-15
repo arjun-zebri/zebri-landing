@@ -9,48 +9,61 @@ const CHECK_ICON = (
 
 const DASH_ICON = <X size={14} className="text-gray-300 flex-shrink-0" />;
 
+type PlanKey = "starter" | "pro" | "max";
+
 interface PlanFeature {
   label: string;
-  free: boolean;
   starter: boolean;
   pro: boolean;
+  max: boolean;
   comingSoon?: boolean;
 }
 
 const features: PlanFeature[] = [
-  { label: "CRM & pipeline", free: true, starter: true, pro: true },
+  { label: "CRM basics", starter: true, pro: true, max: true },
+  { label: "Contracts & e-signatures", starter: true, pro: true, max: true },
+  { label: "Payments & invoicing", starter: true, pro: true, max: true },
+  { label: "Client portal", starter: false, pro: true, max: true },
+  { label: "Questionnaires", starter: false, pro: true, max: true },
   {
-    label: "Quotes, invoices & payment links",
-    free: true,
-    starter: true,
-    pro: true,
-  },
-  { label: "Task management", free: true, starter: true, pro: true },
-  { label: "Couple portal", free: false, starter: true, pro: true },
-  {
-    label: "Song selection & file transfer",
-    free: false,
-    starter: true,
-    pro: true,
-  },
-  { label: "Timeline Builder", free: false, starter: true, pro: true },
-  { label: "Pulse", free: false, starter: false, pro: true, comingSoon: true },
-  { label: "Event Mode", free: false, starter: false, pro: true, comingSoon: true },
-  { label: "Up to 5 team members", free: false, starter: false, pro: true, comingSoon: true },
-  {
-    label: "Dedicated account manager & priority support",
-    free: false,
+    label: "Templates (emails, packages, invoices & timelines)",
     starter: false,
     pro: true,
+    max: true,
+  },
+  { label: "Automations", starter: false, pro: false, max: true },
+  { label: "SMS", starter: false, pro: false, max: true },
+  {
+    label: "Pulse (AI sales coach)",
+    starter: false,
+    pro: false,
+    max: true,
+    comingSoon: true,
+  },
+  {
+    label: "Integrations (calendar scheduling, email, NOIM submission & more)",
+    starter: false,
+    pro: false,
+    max: true,
   },
 ];
 
 export function Pricing() {
   const [annual, setAnnual] = useState(false);
 
-  const plans = [
+  const plans: {
+    name: string;
+    key: PlanKey;
+    price: { monthly: number; annual: number };
+    description: string;
+    couplesLabel: string;
+    cta: string;
+    ctaHref: string;
+    popular: boolean;
+  }[] = [
     {
       name: "Starter",
+      key: "starter",
       price: { monthly: 0, annual: 0 },
       description: "For MCs getting started.",
       couplesLabel: "Up to 5 couples",
@@ -60,26 +73,28 @@ export function Pricing() {
     },
     {
       name: "Pro",
+      key: "pro",
       price: { monthly: 49, annual: 39 },
       description: "For working MCs building their business.",
       couplesLabel: "Unlimited couples",
-      cta: "Start Free Trial",
+      cta: "Get Started",
       ctaHref: "https://app.zebri.com.au/signup",
       popular: true,
     },
     {
       name: "Max",
-      price: { monthly: 89, annual: 71 },
+      key: "max",
+      price: { monthly: 79, annual: 63 },
       description: "For full-time MCs running a business.",
       couplesLabel: "Unlimited couples",
-      cta: "Start Free Trial",
+      cta: "Get Started",
       ctaHref: "https://app.zebri.com.au/signup",
       popular: false,
     },
   ];
 
   return (
-    <section id="pricing" className="py-20 px-4 md:py-32 bg-[#FAFAFA]">
+    <section id="pricing" className="pt-20 md:pt-32 pb-12 md:pb-16 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12 md:mb-16">
@@ -91,7 +106,7 @@ export function Pricing() {
               Simple, honest pricing.
             </h2>
 
-            {/* Billing toggle — fixed height to prevent layout shift */}
+            {/* Billing toggle, fixed height to prevent layout shift */}
             <div className="flex items-center gap-3 self-start sm:self-auto">
               <span
                 className={`text-sm transition-colors ${
@@ -132,14 +147,14 @@ export function Pricing() {
           </div>
         </div>
 
-        {/* Cards */}
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-2 md:grid md:grid-cols-3 md:overflow-visible md:pb-0">
+        {/* Cards: single column on mobile, 3-up on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {plans.map((plan) => {
             const price = annual ? plan.price.annual : plan.price.monthly;
             return (
               <div
                 key={plan.name}
-                className={`relative bg-white rounded-lg p-6 flex flex-col flex-shrink-0 w-[88%] snap-start md:w-auto ${
+                className={`relative bg-white rounded-lg p-6 flex flex-col ${
                   plan.popular
                     ? "border-2 border-gray-900"
                     : "border border-gray-200"
@@ -185,7 +200,7 @@ export function Pricing() {
                 {/* CTA */}
                 <a
                   href={plan.ctaHref}
-                  className="w-full text-center px-4 py-2.5 rounded-md text-sm font-semibold transition-colors mb-6 bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900"
+                  className="w-full text-center px-4 py-2 rounded-md text-sm font-semibold transition-colors mb-6 bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900"
                 >
                   {plan.cta}
                 </a>
@@ -205,18 +220,15 @@ export function Pricing() {
                     </span>
                   </li>
                   {features.map((feature) => {
-                    const included =
-                      plan.name === "Starter"
-                        ? feature.free
-                        : plan.name === "Pro"
-                        ? feature.starter
-                        : feature.pro;
+                    const included = feature[plan.key];
                     return (
                       <li
                         key={feature.label}
-                        className="flex items-center gap-2.5"
+                        className="flex items-start gap-2.5"
                       >
-                        {included ? CHECK_ICON : DASH_ICON}
+                        <span className="mt-1">
+                          {included ? CHECK_ICON : DASH_ICON}
+                        </span>
                         <span
                           className={`text-sm ${
                             included ? "text-gray-700" : "text-gray-400"

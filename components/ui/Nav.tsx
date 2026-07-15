@@ -57,7 +57,7 @@ export function Nav() {
         </div>
       </nav>
 
-      {/* Mobile drawer — always in DOM for smooth open/close animation */}
+      {/* Mobile drawer, always in DOM for smooth open/close animation */}
       <div
         className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ${
           menuOpen ? "visible" : "invisible pointer-events-none"

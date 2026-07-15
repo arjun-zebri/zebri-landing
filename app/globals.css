@@ -14,12 +14,29 @@
 
 body {
   background-color: #ffffff;
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  background-size: 28px 28px;
+  /* Mint radial wash: a soft brand glow behind the hero that fades to white.
+     Fixed px radii so the glow stays in the hero regardless of page height. */
+  background-image: radial-gradient(
+    ellipse 90% 640px at 50% -160px,
+    rgba(167, 243, 208, 0.25),
+    transparent
+  );
+  background-repeat: no-repeat;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Talk to Zebri animated demo (components/animated/TalkToZebri.tsx) */
+@keyframes zebri-wave {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
 }
 
 /* Hide focus ring for mouse/pointer users; preserve it for keyboard navigation */
@@ -27,7 +44,7 @@ html {
   outline: none;
 }
 
-/* Keyboard focus — visible and accessible */
+/* Keyboard focus: visible and accessible */
 *:focus-visible {
   outline: 2px solid #9ca3af;
   outline-offset: 2px;

@@ -2,9 +2,10 @@ import { Mail, ArrowRight } from "lucide-react";
 import { Nav } from "@/components/ui/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { PainPoints } from "@/components/sections/PainPoints";
-import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Features } from "@/components/sections/Features";
+import { SocialProof } from "@/components/sections/SocialProof";
 import { Pricing } from "@/components/sections/Pricing";
+import { FoundingOffer } from "@/components/sections/FoundingOffer";
 import { FAQ } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
@@ -15,9 +16,10 @@ export default function Home() {
       <main className="w-full">
         <Hero />
         <PainPoints />
-        <HowItWorks />
         <Features />
+        <SocialProof />
         <Pricing />
+        <FoundingOffer />
         <FAQ />
         <FinalCTA />
 
@@ -33,9 +35,9 @@ export default function Home() {
                   </span>
                 </div>
                 <p className="text-sm text-[#6B7280] leading-relaxed max-w-sm">
-                  The command centre for professional wedding MCs. One place for
-                  your couples, timelines, scripts, vendor coordination, and
-                  live event mode.
+                  The command centre for professional wedding MCs and
+                  celebrants. One place for your couples, timelines, scripts,
+                  and vendor coordination.
                 </p>
               </div>
 
@@ -99,7 +101,7 @@ export default function Home() {
                 <div className="mt-6 pt-6 border-t border-gray-100">
                   <a
                     href="https://app.zebri.com.au/signup"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900 transition-colors"
                   >
                     Get Started
                     <ArrowRight size={12} aria-hidden />

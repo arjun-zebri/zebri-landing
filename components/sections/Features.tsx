@@ -1,97 +1,52 @@
-import { Users, CalendarDays, Link2, Zap, Play } from "lucide-react";
+import Image from "next/image";
+import { Mic, CalendarDays, Link2, Zap, Sparkles, Search } from "lucide-react";
+import { TalkToZebri } from "@/components/animated/TalkToZebri";
 
-// ─── Event Mode Mockup ────────────────────────────────────────────────────────
+// ─── Ask Zebri Mockup ─────────────────────────────────────────────────────────
 
-function EventModeMockup() {
-  const items = [
-    { time: "3:00", label: "Guests arrive and be seated", state: "past" },
-    { time: "3:15", label: "Bridal party entrance", state: "past" },
-    { time: "3:20", label: "Processional", state: "current" },
-    { time: "3:25", label: "Ceremony begins", state: "next" },
-    { time: "3:45", label: "Vows & ring exchange", state: "upcoming" },
-    { time: "4:00", label: "First kiss · Recessional", state: "upcoming" },
+function AskZebriMockup() {
+  const followUps = [
+    { name: "Priya & Daniel Sharma", date: "Sat 12 Sep", note: "Quote sent, no reply in 6 days" },
+    { name: "Emma & Jack Riley", date: "Fri 23 Oct", note: "Asked about pricing yesterday" },
+    { name: "Chloe & Marcus Bell", date: "Sat 7 Nov", note: "Availability confirmed, no quote yet" },
   ];
 
   return (
-    <div className="bg-white p-4">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-3">
-        <div className="min-w-0">
-          <p className="text-[11px] font-semibold text-gray-900 truncate">
-            Sarah & Tom Chen
-          </p>
-          <p className="text-[9px] text-gray-400 mt-0.5">
-            Sat 14 Feb · The Grounds
-          </p>
-        </div>
-        <span className="flex items-center gap-1 text-[9px] font-semibold text-emerald-700 bg-[#A7F3D0]/30 border border-[#A7F3D0] px-2 py-0.5 rounded-full shrink-0 ml-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          Live
-        </span>
-      </div>
-
-      {/* Current item */}
-      <div className="bg-[#A7F3D0]/15 border border-[#A7F3D0]/40 rounded-lg p-3 mb-2.5">
-        <div className="flex items-center gap-2 mb-1">
-          <span className="text-[8px] font-bold text-emerald-700 uppercase tracking-widest">
-            Now
-          </span>
-          <span className="text-[9px] text-emerald-600/70">3:20 PM</span>
-        </div>
-        <p className="text-sm font-semibold text-gray-900 leading-snug">
-          Processional
+    <div className="bg-white p-5 h-full">
+      {/* Query bar */}
+      <div className="flex items-center gap-2.5 border border-gray-200 rounded-lg px-3.5 py-2.5 mb-4">
+        <Search size={14} className="text-gray-400 shrink-0" aria-hidden />
+        <p className="text-xs text-gray-900">
+          Who should I follow up with this week?
         </p>
-        <p className="text-[10px] text-gray-500 mt-0.5">Tom & parents enter</p>
       </div>
 
-      {/* Next up */}
-      <div className="flex items-center gap-2 px-1 mb-3">
-        <span className="text-[9px] font-medium text-gray-400 uppercase tracking-wider shrink-0">
-          Next
-        </span>
-        <span className="text-[10px] text-gray-400">3:25 PM</span>
-        <span className="text-[10px] text-gray-700 font-medium">
-          Ceremony begins
-        </span>
+      {/* Answer */}
+      <div className="flex items-center gap-2 mb-3">
+        <Sparkles size={12} className="text-emerald-600" aria-hidden />
+        <p className="text-[11px] font-medium text-emerald-700 uppercase tracking-widest">
+          Ask Zebri
+        </p>
       </div>
+      <p className="text-xs text-gray-600 leading-relaxed mb-4">
+        You have 3 couples worth following up with, sorted by how likely they
+        are to book:
+      </p>
 
-      {/* Timeline list */}
-      <div className="border-t border-gray-100 pt-2.5 space-y-0.5">
-        {items.map((item) => (
+      {/* Result list */}
+      <div className="space-y-2">
+        {followUps.map((c) => (
           <div
-            key={item.time}
-            className={`flex items-start gap-2.5 px-2 py-1.5 rounded-md border-l-2 ${
-              item.state === "current"
-                ? "border-emerald-400 bg-[#A7F3D0]/10"
-                : "border-transparent"
-            }`}
+            key={c.name}
+            className="flex items-start justify-between gap-3 border border-gray-100 rounded-md px-3 py-2.5"
           >
-            <span
-              className={`text-[10px] w-8 shrink-0 font-medium ${
-                item.state === "past"
-                  ? "text-gray-300"
-                  : item.state === "current"
-                  ? "text-emerald-600"
-                  : item.state === "next"
-                  ? "text-gray-700"
-                  : "text-gray-400"
-              }`}
-            >
-              {item.time}
-            </span>
-            <span
-              className={`text-[10px] leading-snug ${
-                item.state === "past"
-                  ? "text-gray-300 line-through"
-                  : item.state === "current"
-                  ? "text-gray-900 font-semibold"
-                  : item.state === "next"
-                  ? "text-gray-700"
-                  : "text-gray-400"
-              }`}
-            >
-              {item.label}
-            </span>
+            <div className="min-w-0">
+              <p className="text-xs font-semibold text-gray-900 truncate">
+                {c.name}
+              </p>
+              <p className="text-[11px] text-gray-500 mt-0.5">{c.note}</p>
+            </div>
+            <span className="text-[11px] text-gray-400 shrink-0">{c.date}</span>
           </div>
         ))}
       </div>
@@ -103,16 +58,16 @@ function EventModeMockup() {
 
 const features = [
   {
-    icon: Users,
-    name: "Couple Management",
-    subheading: "Every couple, one place.",
+    icon: Mic,
+    name: "Talk to Zebri",
+    subheading: "Run your couples by voice.",
     description:
-      "See every booking at a glance. From first enquiry to final payment, know exactly where each couple stands: stage, amount, and outstanding tasks. Add leads manually or let Zebri's AI workflows capture and log new enquiries automatically.",
+      "Your entire CRM, hands-free. Say \"add Sarah and Tom, ceremony March 14 at The Grounds\" and it's done. Log calls, update details, move couples through your pipeline, and check what's outstanding. All by talking to Zebri, in the car between venues.",
     flip: false,
-    src: "/crm-ui.png",
-    alt: "Couple management CRM",
+    src: null,
+    alt: null,
+    demo: "talk-to-zebri",
     comingSoon: false,
-    objectPosition: "object-left-top",
   },
   {
     icon: CalendarDays,
@@ -139,20 +94,20 @@ const features = [
   {
     icon: Zap,
     name: "Pulse",
-    subheading: "Stop chasing cold leads.",
+    subheading: "Your AI sales coach.",
     description:
-      "Most enquiries go nowhere. Pulse scores each lead on fit and readiness so you focus your energy on the couples most likely to book. Fewer wasted follow-ups, more confirmed weddings.",
+      "Most enquiries go nowhere. Pulse is an AI sales coach that scores each lead on fit and readiness, surfaces your next best action, and summarises every conversation, so you spend your energy on the couples most likely to book.",
     flip: true,
     src: "/sales-coach.png",
-    alt: "Pulse lead scoring",
+    alt: "Pulse AI sales coach lead scoring",
     comingSoon: true,
   },
   {
-    icon: Play,
-    name: "Event Mode",
-    subheading: "Your command view for the night.",
+    icon: Sparkles,
+    name: "Ask Zebri",
+    subheading: "Every answer, instantly.",
     description:
-      "Switch to Event Mode when the night starts. A distraction-free, full-screen run sheet that highlights what is current and auto-advances in real time. Works completely offline, perfect for venues with no signal.",
+      "Ask anything about your business in plain English. \"How many weddings in October?\" \"What did the Chens say about their first dance?\" Ask Zebri searches your couples, emails, and messages, answers your questions, and builds dashboards on the spot.",
     flip: false,
     src: null,
     alt: null,
@@ -169,17 +124,20 @@ export function Features() {
       aria-labelledby="features-heading"
       className="py-20 px-4 md:py-32"
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="mb-16 md:mb-20">
+          <p className="text-xs font-semibold text-emerald-700 uppercase tracking-widest mb-3">
+            Zebri ends this
+          </p>
           <h2
             id="features-heading"
-            className="text-[2.5rem] md:text-[2.75rem] font-semibold text-gray-900 leading-tight tracking-tight"
+            className="text-[2rem] md:text-[2.5rem] font-semibold text-gray-900 leading-tight tracking-tight"
           >
             Built for how you actually work.
           </h2>
-          <p className="text-lg text-[#6B7280] mt-4 max-w-xl">
-            Five features that replace everything you&apos;re piecing together
-            right now.
+          <p className="text-lg text-[#6B7280] mt-4 max-w-3xl">
+            Five features built around AI that replace everything you&apos;re
+            piecing together right now.
           </p>
         </div>
 
@@ -216,13 +174,17 @@ export function Features() {
                   </div>
                 )}
                 {feature.src ? (
-                  <img
+                  <Image
                     src={feature.src}
                     alt={feature.alt ?? ""}
-                    className={`w-full h-full object-cover block ${feature.objectPosition ?? "object-top"}`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover object-top"
                   />
+                ) : feature.demo === "talk-to-zebri" ? (
+                  <TalkToZebri />
                 ) : (
-                  <EventModeMockup />
+                  <AskZebriMockup />
                 )}
               </div>
             );

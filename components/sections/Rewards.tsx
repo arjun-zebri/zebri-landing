@@ -17,7 +17,7 @@ const rewards = [
       </svg>
     ),
     heading: "40% off. Forever.",
-    body: "Lock in $29/month for life — normally $49. Only available to the first 20 founding members. After that, standard pricing applies.",
+    body: "Lock in $29/month for life (normally $49). Only available to the first 20 founding members. After that, standard pricing applies.",
   },
   {
     icon: (
@@ -37,7 +37,7 @@ const rewards = [
       </svg>
     ),
     heading: "Shape the product.",
-    body: "Your feedback ships in weeks, not quarters. Founding members have direct input into what gets built next — this is your tool, not a generic CRM.",
+    body: "Your feedback ships in weeks, not quarters. Founding members have direct input into what gets built next. This is your tool, not a generic CRM.",
   },
   {
     icon: (

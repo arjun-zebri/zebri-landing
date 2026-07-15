@@ -50,7 +50,7 @@ export default function PrivacyPage() {
               <h3 className="text-sm font-semibold text-gray-800 mb-2 mt-4">2.1 Account information</h3>
               <p className="text-[#6B7280]">
                 When you register for Zebri, we collect your name and email address. If you upgrade
-                to a paid plan, we collect billing information (processed by Stripe — see Section 5).
+                to a paid plan, we collect billing information (processed by Stripe; see Section 5).
                 We do not store full payment card details on our systems.
               </p>
 
@@ -78,9 +78,9 @@ export default function PrivacyPage() {
 
               <h3 className="text-sm font-semibold text-gray-800 mb-2 mt-4">2.5 Cookies</h3>
               <p className="text-[#6B7280]">
-                We use cookies and similar tracking technologies for two purposes: (a) session management
-                — to keep you logged in during a session; and (b) analytics — to understand how visitors
-                use the site (via PostHog). We do not use advertising or tracking cookies. You can
+                We use cookies and similar tracking technologies for two purposes: (a) session
+                management, to keep you logged in during a session; and (b) analytics, to understand
+                how visitors use the site (via PostHog). We do not use advertising or tracking cookies. You can
                 disable cookies in your browser settings; however, doing so may prevent you from using
                 certain features of the platform.
               </p>
@@ -210,8 +210,8 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-base font-semibold text-gray-900 mb-3">9. Your data remains yours</h2>
               <p className="text-[#6B7280]">
-                All content you create in Zebri — couple records, timelines, scripts, invoices, and any
-                other data — remains your property. We claim no ownership over it. We process it solely
+                All content you create in Zebri (couple records, timelines, scripts, invoices, and
+                any other data) remains your property. We claim no ownership over it. We process it solely
                 to provide the service to you. You may export your data at any time from within your
                 account. If you close your account, you will have 30 days to export your data before
                 it is deleted.

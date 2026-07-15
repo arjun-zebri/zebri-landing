@@ -15,7 +15,7 @@ export function FAQ() {
     {
       id: "crm",
       q: "Is this a CRM?",
-      a: "Zebri includes end-to-end client management: couple contacts, vendor details, workflow stages, payment tracking, and AI enquiry scoring. But it's not a generic CRM. It's purpose-built for MCs with shared timelines, couple portals, and offline event mode all in one place. Think of it as the operational hub no generic CRM was designed to be.",
+      a: "Zebri includes end-to-end client management: couple contacts, vendor details, workflow stages, payment tracking, and AI enquiry scoring. But it's not a generic CRM. It's purpose-built for MCs and celebrants, with shared timelines and couple portals in one place. Think of it as the operational hub no generic CRM was designed to be.",
     },
     {
       id: "cancel",
@@ -34,24 +34,24 @@ export function FAQ() {
     },
     {
       id: "ai-tool",
-      q: "What does the AI sales coach actually do?",
-      a: "Zebri scores every enquiry based on budget fit, availability, sentiment, engagement, and intent, giving each couple a readiness score so you know who to follow up with first. It also surfaces next best actions (send quote, book a call, follow up) and provides conversation summaries so you're always prepared. It's your sales assistant, not a gimmick.",
+      q: "What does Pulse, the AI sales coach, actually do?",
+      a: "Pulse scores every enquiry based on budget fit, availability, sentiment, engagement, and intent, giving each couple a readiness score so you know who to follow up with first. It also surfaces next best actions (send quote, book a call, follow up) and provides conversation summaries so you're always prepared. It's your sales assistant, not a gimmick.",
     },
     {
-      id: "offline",
-      q: "Does event mode work without internet?",
-      a: "Yes. Event mode works completely offline. All your event data, timeline, couple details and notes are cached and available without wifi on the day. Perfect for venues with spotty connectivity.",
+      id: "data-export",
+      q: "What happens to my data if I leave?",
+      a: "It's yours, always. You can export your couples, timelines, and notes at any time, and if you cancel we'll help you take everything with you. No hostage data, ever.",
     },
   ];
 
   return (
     <section className="py-20 px-4 md:py-32">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-[2.5rem] md:text-[2.75rem] font-semibold text-gray-900 leading-tight tracking-tight mb-12 md:mb-16">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-[2rem] md:text-[2.5rem] font-semibold text-gray-900 leading-tight tracking-tight mb-12 md:mb-16 text-center">
           Questions.
         </h2>
 
-        <div>
+        <div className="max-w-3xl mx-auto">
           {faqs.map((faq) => (
             <div
               key={faq.id}
@@ -75,19 +75,21 @@ export function FAQ() {
               </button>
 
               <div
-                className={`overflow-hidden transition-[max-height] duration-200 ease-in-out ${
-                  expanded === faq.id ? "max-h-48 pb-5 md:pb-6" : "max-h-0"
+                className={`grid transition-[grid-template-rows] duration-200 ease-in-out ${
+                  expanded === faq.id ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                 }`}
               >
-                <p className="text-sm text-[#6B7280] leading-relaxed pr-10">
-                  {faq.a}
-                </p>
+                <div className="overflow-hidden">
+                  <p className="text-sm text-[#6B7280] leading-relaxed pr-10 pb-5 md:pb-6">
+                    {faq.a}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-100 text-center">
+        <div className="max-w-3xl mx-auto mt-12 pt-8 border-t border-gray-100 text-center">
           <p className="text-sm text-[#6B7280]">
             Still have questions?{" "}
             <a

@@ -125,7 +125,7 @@ export function SignupForm({
     );
   }
 
-  // hero variant — inline on desktop, stacked on mobile
+  // hero variant: inline on desktop, stacked on mobile
   return (
     <form onSubmit={handleSubmit} className="space-y-2.5">
       <div className="flex flex-col sm:flex-row gap-2">

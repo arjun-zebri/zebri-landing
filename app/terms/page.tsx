@@ -221,8 +221,8 @@ export default function TermsPage() {
               <h2 className="text-base font-semibold text-gray-900 mb-3">11. Limitation of liability</h2>
               <p className="text-[#6B7280]">
                 To the maximum extent permitted by applicable law, Zebri&apos;s total liability to you
-                for any claim arising out of or relating to these Terms or the Service — whether in
-                contract, tort (including negligence), statute, or otherwise — is limited to the
+                for any claim arising out of or relating to these Terms or the Service, whether in
+                contract, tort (including negligence), statute, or otherwise, is limited to the
                 total fees paid by you to Zebri in the 12 months preceding the event giving rise to
                 the claim, or AUD $100, whichever is greater.
               </p>

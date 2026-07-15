@@ -21,7 +21,7 @@ export function FinalCTA() {
 
         <h2
           id="cta-heading"
-          className="text-[2.75rem] md:text-[3.5rem] font-semibold leading-[1.1] tracking-tight text-white mb-6"
+          className="text-[2.5rem] md:text-[3rem] font-semibold leading-[1.1] tracking-tight text-white mb-6"
         >
           The night before
           <br />
@@ -34,7 +34,7 @@ export function FinalCTA() {
 
         <a
           href="https://app.zebri.com.au/signup"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[#A7F3D0] text-gray-900 text-sm font-semibold hover:bg-[#6ee7b7] transition-colors shadow-[0_0_24px_rgba(167,243,208,0.25)]"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900 text-sm font-semibold transition-colors"
         >
           Get Started Free
           <ArrowRight size={16} />

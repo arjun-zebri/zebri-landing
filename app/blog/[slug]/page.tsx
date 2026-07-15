@@ -66,7 +66,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               href="https://app.zebri.com.au/signup"
               className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold rounded-md transition-colors"
             >
-              Start Free Trial →
+              Get Started →
             </a>
           </div>
         </div>
