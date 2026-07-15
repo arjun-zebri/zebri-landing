@@ -55,7 +55,7 @@ export function Hero() {
               </a>
             </div>
 
-            <div className="flex items-center gap-3 mb-10">
+            <div className="flex flex-col items-start gap-3 mb-10 sm:flex-row sm:items-center">
               <div className="flex -space-x-2">
                 {founders.map((f) => (
                   <span
@@ -75,8 +75,11 @@ export function Hero() {
                 ))}
               </div>
               <p className="text-sm text-[#6B7280]">
-                <span className="font-medium text-gray-900">30 others</span> have
-                registered for early access.
+                Backed by MCs and celebrants behind{" "}
+                <span className="font-medium text-gray-900">
+                  2,500+ weddings and events
+                </span>
+                .
               </p>
             </div>
 
