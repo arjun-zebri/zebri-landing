@@ -109,7 +109,7 @@ export function EarlyAccessModal({
 
       {/* Card */}
       <div
-        className={`relative bg-white rounded-lg shadow-2xl w-full max-w-md p-8 transition-all duration-200 ${
+        className={`relative bg-white rounded-lg shadow-2xl w-full max-w-md max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain p-8 transition-all duration-200 ${
           open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
         }`}
         onClick={(e) => e.stopPropagation()}
