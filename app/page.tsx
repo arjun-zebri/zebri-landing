@@ -1,5 +1,6 @@
 import { Mail, ArrowRight } from "lucide-react";
 import { Nav } from "@/components/ui/Nav";
+import { EarlyAccessButton } from "@/components/ui/EarlyAccessButton";
 import { Hero } from "@/components/sections/Hero";
 import { PainPoints } from "@/components/sections/PainPoints";
 import { Features } from "@/components/sections/Features";
@@ -17,9 +18,9 @@ export default function Home() {
         <Hero />
         <PainPoints />
         <Features />
+        <FoundingOffer />
         <SocialProof />
         <Pricing />
-        <FoundingOffer />
         <FAQ />
         <FinalCTA />
 
@@ -99,13 +100,13 @@ export default function Home() {
 
                 {/* CTA */}
                 <div className="mt-6 pt-6 border-t border-gray-100">
-                  <a
-                    href="https://app.zebri.com.au/signup"
-                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900 transition-colors"
+                  <EarlyAccessButton
+                    source="footer"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900 transition-colors cursor-pointer"
                   >
-                    Get Started
+                    Get Early Access
                     <ArrowRight size={12} aria-hidden />
-                  </a>
+                  </EarlyAccessButton>
                 </div>
               </div>
             </div>

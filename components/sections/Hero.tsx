@@ -1,9 +1,6 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import { ArrowRight, MapPin, Users, ShieldCheck } from "lucide-react";
-import { DemoModal } from "@/components/ui/DemoModal";
+import { EarlyAccessButton } from "@/components/ui/EarlyAccessButton";
 
 const validation = [
   { icon: MapPin, text: "Built in Australia." },
@@ -11,14 +8,20 @@ const validation = [
   { icon: ShieldCheck, text: "Your data stays yours. Always." },
 ];
 
-export function Hero() {
-  const [demoOpen, setDemoOpen] = useState(false);
+const founders = [
+  { name: "Nathan Cassar", img: "/mcs/nathan.svg" },
+  { name: "John Edney", img: "/mcs/john.svg" },
+  { name: "Ceremonies by Sarah", img: "/mcs/sarah.svg" },
+  { name: "Married by Marianna", img: "/mcs/marianna.svg" },
+  { name: "TJ Your MC", img: "/mcs/tj.svg" },
+];
 
+export function Hero() {
   return (
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="pt-12 pb-20 px-4 md:pt-20 md:pb-32"
+      className="pt-20 pb-20 px-4 md:pt-32 md:pb-32"
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-14 lg:gap-16 items-center">
@@ -36,20 +39,45 @@ export function Hero() {
               in ready.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-10">
-              <a
-                href="https://app.zebri.com.au/signup"
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900 transition-colors"
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-6">
+              <EarlyAccessButton
+                source="hero"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900 transition-colors cursor-pointer"
               >
-                Get Started Free
+                Get Early Access
                 <ArrowRight size={16} />
-              </a>
-              <button
-                onClick={() => setDemoOpen(true)}
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md border border-gray-300 hover:border-gray-500 bg-white text-gray-700 hover:text-gray-900 transition-colors cursor-pointer"
+              </EarlyAccessButton>
+              <a
+                href="#features"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md border border-gray-300 hover:border-gray-500 bg-white text-gray-700 hover:text-gray-900 transition-colors"
               >
-                Get a Demo
-              </button>
+                See how it works
+              </a>
+            </div>
+
+            <div className="flex items-center gap-3 mb-10">
+              <div className="flex -space-x-2">
+                {founders.map((f) => (
+                  <span
+                    key={f.name}
+                    className="h-8 w-8 shrink-0 overflow-hidden rounded-full ring-2 ring-white bg-gray-100"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={f.img}
+                      alt={f.name}
+                      width={32}
+                      height={32}
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
+                  </span>
+                ))}
+              </div>
+              <p className="text-sm text-[#6B7280]">
+                <span className="font-medium text-gray-900">30 others</span> have
+                registered for early access.
+              </p>
             </div>
 
             <div className="flex flex-col gap-2.5">
@@ -76,8 +104,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-
-      <DemoModal open={demoOpen} onClose={() => setDemoOpen(false)} />
     </section>
   );
 }

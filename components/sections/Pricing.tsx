@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Check, X } from "lucide-react";
+import { Check } from "lucide-react";
+import { EarlyAccessButton } from "@/components/ui/EarlyAccessButton";
+import { FOUNDING_DISCOUNT_PERCENT } from "@/lib/earlyAccess";
 
 const CHECK_ICON = (
   <Check size={14} className="text-emerald-600 flex-shrink-0" />
 );
-
-const DASH_ICON = <X size={14} className="text-gray-300 flex-shrink-0" />;
 
 type PlanKey = "starter" | "pro" | "max";
 
@@ -16,7 +16,6 @@ interface PlanFeature {
   starter: boolean;
   pro: boolean;
   max: boolean;
-  comingSoon?: boolean;
 }
 
 const features: PlanFeature[] = [
@@ -33,13 +32,8 @@ const features: PlanFeature[] = [
   },
   { label: "Automations", starter: false, pro: false, max: true },
   { label: "SMS", starter: false, pro: false, max: true },
-  {
-    label: "Pulse (AI sales coach)",
-    starter: false,
-    pro: false,
-    max: true,
-    comingSoon: true,
-  },
+  { label: "Pulse (AI sales coach)", starter: false, pro: false, max: true },
+  { label: "Talk to Zebri", starter: false, pro: false, max: true },
   {
     label: "Integrations (calendar scheduling, email, NOIM submission & more)",
     starter: false,
@@ -57,8 +51,6 @@ export function Pricing() {
     price: { monthly: number; annual: number };
     description: string;
     couplesLabel: string;
-    cta: string;
-    ctaHref: string;
     popular: boolean;
   }[] = [
     {
@@ -67,8 +59,6 @@ export function Pricing() {
       price: { monthly: 0, annual: 0 },
       description: "For MCs getting started.",
       couplesLabel: "Up to 5 couples",
-      cta: "Get Started Free",
-      ctaHref: "https://app.zebri.com.au/signup",
       popular: false,
     },
     {
@@ -77,8 +67,6 @@ export function Pricing() {
       price: { monthly: 49, annual: 39 },
       description: "For working MCs building their business.",
       couplesLabel: "Unlimited couples",
-      cta: "Get Started",
-      ctaHref: "https://app.zebri.com.au/signup",
       popular: true,
     },
     {
@@ -87,8 +75,6 @@ export function Pricing() {
       price: { monthly: 79, annual: 63 },
       description: "For full-time MCs running a business.",
       couplesLabel: "Unlimited couples",
-      cta: "Get Started",
-      ctaHref: "https://app.zebri.com.au/signup",
       popular: false,
     },
   ];
@@ -97,7 +83,7 @@ export function Pricing() {
     <section id="pricing" className="pt-20 md:pt-32 pb-12 md:pb-16 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="mb-12 md:mb-16">
+        <div className="mb-6 md:mb-10">
           <p className="text-xs font-semibold text-[#6B7280] uppercase tracking-widest mb-3">
             Pricing
           </p>
@@ -106,36 +92,38 @@ export function Pricing() {
               Simple, honest pricing.
             </h2>
 
-            {/* Billing toggle, fixed height to prevent layout shift */}
-            <div className="flex items-center gap-3 self-start sm:self-auto">
-              <span
-                className={`text-sm transition-colors ${
-                  !annual ? "text-gray-900 font-semibold" : "text-[#6B7280]"
-                }`}
-              >
-                Monthly
-              </span>
-              <button
-                onClick={() => setAnnual(!annual)}
-                className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${
-                  annual ? "bg-gray-900" : "bg-gray-200"
-                }`}
-                aria-label="Toggle annual billing"
-              >
+            {/* Billing toggle, pill stacked below to keep the row on the card edge */}
+            <div className="flex flex-col items-start sm:items-end gap-2 self-start sm:self-auto">
+              <div className="flex items-center gap-3">
                 <span
-                  className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform ${
-                    annual ? "translate-x-4.5" : "translate-x-0.5"
+                  className={`text-sm transition-colors ${
+                    !annual ? "text-gray-900 font-semibold" : "text-[#6B7280]"
                   }`}
-                />
-              </button>
-              <span
-                className={`text-sm transition-colors ${
-                  annual ? "text-gray-900 font-semibold" : "text-[#6B7280]"
-                }`}
-              >
-                Annual
-              </span>
-              {/* Reserve space to prevent layout shift */}
+                >
+                  Monthly
+                </span>
+                <button
+                  onClick={() => setAnnual(!annual)}
+                  className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${
+                    annual ? "bg-gray-900" : "bg-gray-200"
+                  }`}
+                  aria-label="Toggle annual billing"
+                >
+                  <span
+                    className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform ${
+                      annual ? "translate-x-4.5" : "translate-x-0.5"
+                    }`}
+                  />
+                </button>
+                <span
+                  className={`text-sm transition-colors ${
+                    annual ? "text-gray-900 font-semibold" : "text-[#6B7280]"
+                  }`}
+                >
+                  Annual
+                </span>
+              </div>
+              {/* Always rendered; opacity toggles so the row height never shifts */}
               <span
                 className={`text-[10px] font-semibold text-emerald-700 bg-[#A7F3D0]/30 border border-[#A7F3D0] px-2 py-0.5 rounded-full transition-opacity ${
                   annual ? "opacity-100" : "opacity-0 pointer-events-none"
@@ -147,14 +135,25 @@ export function Pricing() {
           </div>
         </div>
 
-        {/* Cards: single column on mobile, 3-up on desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {plans.map((plan) => {
+        {/* Cards: horizontal snap carousel on mobile, 3-up grid on desktop.
+            pt-4 keeps the -top-3 "Most popular" badge inside the scroll clip. */}
+        <div className="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-px-4 -mx-4 px-4 pt-4 md:grid md:grid-cols-3 md:overflow-visible md:mx-0 md:px-0 md:pt-0">
+          {plans.map((plan, planIndex) => {
             const price = annual ? plan.price.annual : plan.price.monthly;
+            const foundingPrice = Math.round(
+              price * (1 - FOUNDING_DISCOUNT_PERCENT / 100)
+            );
+            const prevPlan = planIndex > 0 ? plans[planIndex - 1] : undefined;
+            // Only show what this tier adds over the one below it.
+            const newFeatures = features.filter(
+              (f) => f[plan.key] && (!prevPlan || !f[prevPlan.key])
+            );
+            const showCouples =
+              !prevPlan || prevPlan.couplesLabel !== plan.couplesLabel;
             return (
               <div
                 key={plan.name}
-                className={`relative bg-white rounded-lg p-6 flex flex-col ${
+                className={`relative w-[85%] max-w-sm shrink-0 snap-start md:w-auto md:max-w-none bg-white rounded-lg p-6 flex flex-col ${
                   plan.popular
                     ? "border-2 border-gray-900"
                     : "border border-gray-200"
@@ -173,15 +172,18 @@ export function Pricing() {
                   <h3 className="text-sm font-semibold text-gray-900 mb-1">
                     {plan.name}
                   </h3>
-                  <div className="flex items-baseline gap-1 mb-2">
+                  <div className="flex items-baseline gap-1.5 mb-2">
                     {plan.price.monthly === 0 ? (
                       <span className="text-3xl font-semibold text-gray-900">
                         Free
                       </span>
                     ) : (
                       <>
-                        <span className="text-3xl font-semibold text-gray-900">
+                        <span className="text-xl font-normal text-gray-400 line-through">
                           ${price}
+                        </span>
+                        <span className="text-3xl font-semibold text-gray-900">
+                          ${foundingPrice}
                         </span>
                         <span className="text-sm text-[#6B7280]">/mo</span>
                         {annual && (
@@ -198,14 +200,14 @@ export function Pricing() {
                 </div>
 
                 {/* CTA */}
-                <a
-                  href={plan.ctaHref}
-                  className="w-full text-center px-4 py-2 rounded-md text-sm font-semibold transition-colors mb-6 bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900"
+                <EarlyAccessButton
+                  source={`pricing-${plan.key}`}
+                  className="w-full text-center px-4 py-2 rounded-md text-sm font-semibold transition-colors mb-6 bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900 cursor-pointer"
                 >
-                  {plan.cta}
-                </a>
+                  Get Early Access
+                </EarlyAccessButton>
                 <p className={`text-center text-[11px] -mt-3 mb-5 ${plan.price.monthly !== 0 ? "text-[#6B7280]" : "invisible"}`}>
-                  14-day free trial · No credit card required
+                  Founding rate for your first 12 months
                 </p>
 
                 {/* Divider */}
@@ -213,37 +215,30 @@ export function Pricing() {
 
                 {/* Features */}
                 <ul className="space-y-2.5 flex-1">
-                  <li className="flex items-center gap-2.5">
-                    {CHECK_ICON}
-                    <span className="text-sm text-gray-700">
-                      {plan.couplesLabel}
-                    </span>
-                  </li>
-                  {features.map((feature) => {
-                    const included = feature[plan.key];
-                    return (
-                      <li
-                        key={feature.label}
-                        className="flex items-start gap-2.5"
-                      >
-                        <span className="mt-1">
-                          {included ? CHECK_ICON : DASH_ICON}
-                        </span>
-                        <span
-                          className={`text-sm ${
-                            included ? "text-gray-700" : "text-gray-400"
-                          }`}
-                        >
-                          {feature.label}
-                          {included && feature.comingSoon && (
-                            <span className="ml-1.5 text-[10px] font-medium text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded-full align-middle">
-                              Soon
-                            </span>
-                          )}
-                        </span>
-                      </li>
-                    );
-                  })}
+                  {prevPlan && (
+                    <li className="text-sm font-medium text-gray-900 mb-5">
+                      Everything in {prevPlan.name}, plus
+                    </li>
+                  )}
+                  {showCouples && (
+                    <li className="flex items-center gap-2.5">
+                      {CHECK_ICON}
+                      <span className="text-sm text-gray-700">
+                        {plan.couplesLabel}
+                      </span>
+                    </li>
+                  )}
+                  {newFeatures.map((feature) => (
+                    <li
+                      key={feature.label}
+                      className="flex items-start gap-2.5"
+                    >
+                      <span className="mt-1">{CHECK_ICON}</span>
+                      <span className="text-sm text-gray-700">
+                        {feature.label}
+                      </span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             );

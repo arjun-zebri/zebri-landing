@@ -1,64 +1,22 @@
 import Image from "next/image";
-import { Mic, CalendarDays, Link2, Zap, Sparkles, Search } from "lucide-react";
+import {
+  VoiceWaveIcon,
+  TimelineIcon,
+  RingsIcon,
+  PulseIcon,
+  AskIcon,
+} from "@/components/icons/FeatureIcons";
 import { TalkToZebri } from "@/components/animated/TalkToZebri";
-
-// ─── Ask Zebri Mockup ─────────────────────────────────────────────────────────
-
-function AskZebriMockup() {
-  const followUps = [
-    { name: "Priya & Daniel Sharma", date: "Sat 12 Sep", note: "Quote sent, no reply in 6 days" },
-    { name: "Emma & Jack Riley", date: "Fri 23 Oct", note: "Asked about pricing yesterday" },
-    { name: "Chloe & Marcus Bell", date: "Sat 7 Nov", note: "Availability confirmed, no quote yet" },
-  ];
-
-  return (
-    <div className="bg-white p-5 h-full">
-      {/* Query bar */}
-      <div className="flex items-center gap-2.5 border border-gray-200 rounded-lg px-3.5 py-2.5 mb-4">
-        <Search size={14} className="text-gray-400 shrink-0" aria-hidden />
-        <p className="text-xs text-gray-900">
-          Who should I follow up with this week?
-        </p>
-      </div>
-
-      {/* Answer */}
-      <div className="flex items-center gap-2 mb-3">
-        <Sparkles size={12} className="text-emerald-600" aria-hidden />
-        <p className="text-[11px] font-medium text-emerald-700 uppercase tracking-widest">
-          Ask Zebri
-        </p>
-      </div>
-      <p className="text-xs text-gray-600 leading-relaxed mb-4">
-        You have 3 couples worth following up with, sorted by how likely they
-        are to book:
-      </p>
-
-      {/* Result list */}
-      <div className="space-y-2">
-        {followUps.map((c) => (
-          <div
-            key={c.name}
-            className="flex items-start justify-between gap-3 border border-gray-100 rounded-md px-3 py-2.5"
-          >
-            <div className="min-w-0">
-              <p className="text-xs font-semibold text-gray-900 truncate">
-                {c.name}
-              </p>
-              <p className="text-[11px] text-gray-500 mt-0.5">{c.note}</p>
-            </div>
-            <span className="text-[11px] text-gray-400 shrink-0">{c.date}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+import { TimelineBuilder } from "@/components/animated/TimelineBuilder";
+import { CouplePortal } from "@/components/animated/CouplePortal";
+import { Pulse } from "@/components/animated/Pulse";
+import { AskZebri } from "@/components/animated/AskZebri";
 
 // ─── Feature data ─────────────────────────────────────────────────────────────
 
 const features = [
   {
-    icon: Mic,
+    icon: VoiceWaveIcon,
     name: "Talk to Zebri",
     subheading: "Run your couples by voice.",
     description:
@@ -67,43 +25,42 @@ const features = [
     src: null,
     alt: null,
     demo: "talk-to-zebri",
-    comingSoon: false,
   },
   {
-    icon: CalendarDays,
+    icon: TimelineIcon,
     name: "Timeline Builder",
     subheading: "One timeline. Everyone sees it.",
     description:
       "Build the run sheet once and share a live link with your DJ, photographer, and couple. Couples can suggest changes, but every update goes through your approval before anything goes live. One version of the truth, always.",
     flip: true,
-    src: "/timeline-ui.png",
-    alt: "Timeline builder",
-    comingSoon: false,
+    src: null,
+    alt: null,
+    demo: "timeline-builder",
   },
   {
-    icon: Link2,
+    icon: RingsIcon,
     name: "Couple Portal",
     subheading: "They fill it in. You never chase.",
     description:
       "Send couples one link. They submit names, pronunciations, song requests, bridal party details, and signed contracts directly into Zebri. No email chains. No lost attachments. No follow-up required.",
     flip: false,
-    src: "/couple-portal.png",
-    alt: "Couple portal",
-    comingSoon: false,
+    src: null,
+    alt: null,
+    demo: "couple-portal",
   },
   {
-    icon: Zap,
+    icon: PulseIcon,
     name: "Pulse",
     subheading: "Your AI sales coach.",
     description:
       "Most enquiries go nowhere. Pulse is an AI sales coach that scores each lead on fit and readiness, surfaces your next best action, and summarises every conversation, so you spend your energy on the couples most likely to book.",
     flip: true,
-    src: "/sales-coach.png",
-    alt: "Pulse AI sales coach lead scoring",
-    comingSoon: true,
+    src: null,
+    alt: null,
+    demo: "pulse",
   },
   {
-    icon: Sparkles,
+    icon: AskIcon,
     name: "Ask Zebri",
     subheading: "Every answer, instantly.",
     description:
@@ -111,7 +68,7 @@ const features = [
     flip: false,
     src: null,
     alt: null,
-    comingSoon: true,
+    demo: "ask-zebri",
   },
 ];
 
@@ -149,7 +106,7 @@ export function Features() {
               <div>
                 <div className="flex items-center gap-2.5 mb-4">
                   <div className="w-8 h-8 rounded-md bg-[#A7F3D0]/30 flex items-center justify-center shrink-0">
-                    <Icon size={16} className="text-emerald-700" aria-hidden />
+                    <Icon size={16} className="text-emerald-700" />
                   </div>
                   <p className="text-sm font-semibold text-emerald-700">
                     {feature.subheading}
@@ -165,14 +122,7 @@ export function Features() {
             );
 
             const mockup = (
-              <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)]">
-                {feature.comingSoon && (
-                  <div className="absolute top-3 right-3 z-10">
-                    <span className="text-[11px] font-medium text-gray-500 bg-white border border-gray-200 px-3 py-1 rounded-full">
-                      Coming soon
-                    </span>
-                  </div>
-                )}
+              <div className="relative w-full aspect-square sm:aspect-[3/2] rounded-xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)]">
                 {feature.src ? (
                   <Image
                     src={feature.src}
@@ -183,9 +133,15 @@ export function Features() {
                   />
                 ) : feature.demo === "talk-to-zebri" ? (
                   <TalkToZebri />
-                ) : (
-                  <AskZebriMockup />
-                )}
+                ) : feature.demo === "timeline-builder" ? (
+                  <TimelineBuilder />
+                ) : feature.demo === "couple-portal" ? (
+                  <CouplePortal />
+                ) : feature.demo === "pulse" ? (
+                  <Pulse />
+                ) : feature.demo === "ask-zebri" ? (
+                  <AskZebri />
+                ) : null}
               </div>
             );
 

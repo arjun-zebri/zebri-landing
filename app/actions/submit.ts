@@ -99,13 +99,15 @@ Timestamp: ${new Date().toISOString()}
   }
 }
 
-interface DemoRequestData {
+interface EarlyAccessData {
   name: string;
   email: string;
+  currentCrm?: string;
+  source?: string;
 }
 
-export async function submitDemoRequest(
-  data: DemoRequestData
+export async function submitEarlyAccess(
+  data: EarlyAccessData
 ): Promise<SubmitResult> {
   if (!data.email?.trim()) {
     return { success: false, message: "Email is required" };
@@ -121,37 +123,47 @@ export async function submitDemoRequest(
     return { success: false, message: "Server configuration error" };
   }
 
+  const notProvided = "(not provided)";
+
   try {
     await resend.emails.send({
-      from: "Zebri <info@app.zebri.com.au>",
+      from: "Zebri <arjun@zebri.com.au>",
       to: ownerEmail,
       replyTo: data.email,
-      subject: `Demo request: ${data.name || data.email}`,
+      subject: `Early access request: ${data.name || data.email}`,
       text: `
-New Zebri Demo Request
-======================
+New Zebri Early Access Request
+==============================
 
-Name: ${data.name || "(not provided)"}
+Name: ${data.name || notProvided}
 Email: ${data.email}
+Currently uses: ${data.currentCrm || notProvided}
+Came from: ${data.source || notProvided}
 
 Timestamp: ${new Date().toISOString()}
       `.trim(),
       html: `
         <html>
           <body style="font-family: system-ui, -apple-system, sans-serif; color: #18181b; line-height: 1.6;">
-            <h2 style="color: #18181b; margin-bottom: 20px;">New Zebri Demo Request</h2>
+            <h2 style="color: #18181b; margin-bottom: 20px;">New Zebri Early Access Request</h2>
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <td style="padding: 8px 0; font-weight: 600; width: 180px;">Name:</td>
-                <td style="padding: 8px 0;">${
-                  data.name || "(not provided)"
-                }</td>
+                <td style="padding: 8px 0;">${data.name || notProvided}</td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; font-weight: 600;">Email:</td>
                 <td style="padding: 8px 0;"><a href="mailto:${data.email}">${
         data.email
       }</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; font-weight: 600;">Currently uses:</td>
+                <td style="padding: 8px 0;">${data.currentCrm || notProvided}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; font-weight: 600;">Came from:</td>
+                <td style="padding: 8px 0;">${data.source || notProvided}</td>
               </tr>
             </table>
             <p style="color: #71717a; font-size: 12px; margin-top: 20px;">Timestamp: ${new Date().toISOString()}</p>
@@ -162,10 +174,11 @@ Timestamp: ${new Date().toISOString()}
 
     return {
       success: true,
-      message: "We\u2019ll be in touch within 24 hours to schedule your demo.",
+      message:
+        "You’re on the founding list. We’ll be in touch to get you set up.",
     };
   } catch (error) {
-    console.error("Demo request error:", error);
+    console.error("Early access error:", error);
     return {
       success: false,
       message: "Something went wrong. Please try again.",

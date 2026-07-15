@@ -49,3 +49,11 @@ html {
   outline: 2px solid #9ca3af;
   outline-offset: 2px;
 }
+
+/* Mobile carousels (reviews, pricing): scrollable but without a visible bar */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

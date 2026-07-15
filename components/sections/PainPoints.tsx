@@ -15,7 +15,7 @@ export function PainPoints() {
 
         <div className="space-y-5 max-w-4xl">
           <p className="text-base text-gray-900 font-medium leading-relaxed">
-            An enquiry lands in your Instagram DMs. You reply from email, quote
+            An enquiry lands in your Instagram DMs. You reply with an email, quote
             from a Google Doc, chase the signed contract over text, and invoice
             from a third app. Meanwhile the couple you booked months ago still
             hasn&apos;t sent their songs, and Saturday&apos;s run sheet just

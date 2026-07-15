@@ -98,7 +98,7 @@ function MiniCard({
 }) {
   return (
     <div
-      className={`flex items-start gap-1 bg-white border rounded-xl px-2 py-2 transition-colors duration-200 ${className}`}
+      className={`flex items-start gap-1 bg-white border rounded-xl px-1.5 py-1.5 sm:px-2 sm:py-2 transition-colors duration-200 ${className}`}
     >
       <GripVertical
         size={12}
@@ -109,7 +109,7 @@ function MiniCard({
       <div className="min-w-0 flex-1">
         <p className="text-xs font-medium text-gray-900 truncate">{name}</p>
         <div className="mt-1 space-y-0.5 text-[11px] text-gray-400">
-          <p className="flex items-center gap-1 truncate">
+          <p className="hidden sm:flex items-center gap-1 truncate">
             <Mail size={10} strokeWidth={1.5} className="shrink-0" aria-hidden />
             <span className="truncate">{email}</span>
           </p>
@@ -117,7 +117,7 @@ function MiniCard({
             <Calendar size={10} strokeWidth={1.5} className="shrink-0" aria-hidden />
             <span className="truncate">{date}</span>
           </p>
-          <p className="flex items-center gap-1 truncate">
+          <p className="hidden sm:flex items-center gap-1 truncate">
             <MapPin size={10} strokeWidth={1.5} className="shrink-0" aria-hidden />
             <span className="truncate">{venue}</span>
           </p>
@@ -230,12 +230,12 @@ export function TalkToZebri() {
         // through the middle where the white card sits, so it reads as a calm
         // backdrop rather than a coloured fill.
         background:
-          "linear-gradient(135deg, #d9f5e8 0%, #f5fbf9 42%, #f5f9ff 58%, #e3eefc 100%)",
+          "linear-gradient(180deg, #e6f6ee 0%, #f3fbf7 38%, #ffffff 100%)",
       }}
     >
       {/* ── Scene 1: chat input, centered ── */}
       <div
-        className={`absolute inset-0 p-6 flex items-center justify-center transition-opacity duration-200 ${
+        className={`absolute inset-0 p-4 sm:p-6 flex items-center justify-center transition-opacity duration-200 ${
           onBoard ? "opacity-0" : "opacity-100"
         }`}
       >
@@ -293,12 +293,18 @@ export function TalkToZebri() {
 
       {/* ── Scene 2: pipeline board — Sarah & Tom slide New → Paid ── */}
       <div
-        className={`absolute inset-0 p-4 transition-opacity duration-200 ${
+        className={`absolute inset-0 transition-opacity duration-200 ${
           onBoard ? "opacity-100" : "opacity-0"
         }`}
       >
-        {/* White board surface floating on the wash, like the real app */}
-        <div className="h-full bg-white border border-gray-200 rounded-lg px-3 py-3">
+        {/* White board surface — rises up from the bottom edge. Its bottom runs
+            past the frame (clipped by the mockup's overflow-hidden) so it reads
+            as emerging from below, with the green→white wash showing above. */}
+        <div
+          className={`absolute inset-x-2 sm:inset-x-4 top-[20%] -bottom-8 bg-white border border-gray-200 rounded-t-xl px-1.5 sm:px-3 pt-3 transition-transform duration-300 ease-out ${
+            onBoard ? "translate-y-0" : "translate-y-8"
+          }`}
+        >
           <div className="relative h-full">
             {/* Columns */}
             <div className="grid grid-cols-4 h-full">
@@ -310,13 +316,13 @@ export function TalkToZebri() {
                 return (
                   <div
                     key={stage.name}
-                    className={`px-1.5 min-w-0 ${
+                    className={`px-1 sm:px-1.5 min-w-0 ${
                       col > 0 ? "border-l border-gray-100" : ""
                     }`}
                   >
-                    <div className="flex items-center gap-1.5 mb-2 h-5">
+                    <div className="flex items-center gap-1 sm:gap-1.5 mb-2 h-5">
                       <span
-                        className={`text-[11px] font-medium px-1.5 py-0.5 rounded-md truncate ${stage.pill}`}
+                        className={`text-[10px] sm:text-[11px] font-medium px-1 sm:px-1.5 py-0.5 rounded-md truncate ${stage.pill}`}
                       >
                         {stage.name}
                       </span>
@@ -339,7 +345,7 @@ export function TalkToZebri() {
             {/* Sarah & Tom — the card Zebri moves. w-1/4 wrapper means
                 translateX(300%) lands it exactly on the Paid column. */}
             <div
-              className={`absolute top-7 left-0 w-1/4 px-1.5 transition-transform duration-700 ease-in-out ${
+              className={`absolute top-7 left-0 w-1/4 px-1 sm:px-1.5 transition-transform duration-700 ease-in-out ${
                 inFlightOrLanded ? "translate-x-[300%]" : "translate-x-0"
               }`}
             >

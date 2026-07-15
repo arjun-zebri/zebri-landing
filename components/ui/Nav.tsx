@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 import { Menu, X, ChevronRight } from "lucide-react";
+import { EarlyAccessButton } from "@/components/ui/EarlyAccessButton";
+import { useEarlyAccess } from "@/components/ui/EarlyAccessProvider";
 
 export function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { open: openEarlyAccess } = useEarlyAccess();
 
   return (
     <>
@@ -37,13 +40,13 @@ export function Nav() {
             >
               Log in
             </a>
-            <a
-              href="https://app.zebri.com.au/signup"
-              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900 transition-colors"
+            <EarlyAccessButton
+              source="nav"
+              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900 transition-colors cursor-pointer"
             >
-              Start Free Trial
+              Get Early Access
               <ChevronRight size={14} />
-            </a>
+            </EarlyAccessButton>
 
             {/* Hamburger - mobile only */}
             <button
@@ -115,12 +118,16 @@ export function Nav() {
             >
               Log in
             </a>
-            <a
-              href="https://app.zebri.com.au/signup"
-              className="flex items-center justify-center h-11 w-full rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-sm font-semibold text-gray-900 transition-colors"
+            <button
+              type="button"
+              onClick={() => {
+                setMenuOpen(false);
+                openEarlyAccess("nav-mobile");
+              }}
+              className="flex items-center justify-center h-11 w-full rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-sm font-semibold text-gray-900 transition-colors cursor-pointer"
             >
-              Start Free Trial
-            </a>
+              Get Early Access
+            </button>
           </div>
         </div>
       </div>

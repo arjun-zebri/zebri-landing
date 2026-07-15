@@ -18,23 +18,23 @@ const posts: NewsPost[] = [
   {
     slug: "introducing-zebri",
     title: "Introducing Zebri",
-    eyebrow: "Launch",
+    eyebrow: "Early Access",
     heroLine:
       "Built for professional wedding MCs. The command centre you've been building yourself out of five different tools.",
     metaTitle:
       "Introducing Zebri: the command centre for professional wedding MCs",
     metaDescription:
-      "Zebri launches today. Couple Management, Timeline Builder, Couple Portal, Payments, Contracts, and Custom Branding. One login instead of five tools stitched together the night before a wedding.",
+      "Zebri is now open for early access trials. Couple Management, Timeline Builder, Couple Portal, Payments, Contracts, and Custom Branding. One login instead of five tools stitched together the night before a wedding.",
     date: "2026-04-22",
     excerpt:
-      "Six products in one login. Couple Management, Timeline Builder, Couple Portal, Payments, Contracts, and Custom Branding are live for every new trial.",
+      "Six products in one login. Couple Management, Timeline Builder, Couple Portal, Payments, Contracts, and Custom Branding are available in every early access trial.",
     blocks: [
       {
         type: "html",
         html: `
 <p>Running a wedding business across half a dozen tabs is not a system. It is a liability the night before a Saturday. An enquiry buried in Gmail. A contract in a separate e-sign tool. Pronunciations in your phone notes. A balance you have to remember to chase.</p>
 
-<p>Today that changes. Zebri is live for every new trial. Six products in one place, built around how a wedding MC actually works.</p>
+<p>Today that changes. Zebri is opening early access trials. Six products in one place, built around how a wedding MC actually works.</p>
 
 <h2>Couple Management</h2>
 

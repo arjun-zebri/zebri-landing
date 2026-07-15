@@ -1,34 +1,17 @@
 import { ArrowRight, Check, Gift } from "lucide-react";
-
-const perks = [
-  {
-    title: "20% off for 12 months",
-    detail: "Every founding signup, every plan.",
-  },
-  {
-    title: "Max features free for 12 months",
-    detail: "Every Pro signup gets the full Max tier: automations, SMS, Pulse, integrations.",
-  },
-  {
-    title: "Free onboarding call",
-    detail: "We get on a call and load all your couples in together.",
-  },
-  {
-    title: "A dedicated account manager",
-    detail: "A real person you can message. Not a ticket queue.",
-  },
-  {
-    title: "Vote on what gets built next",
-    detail: "Founding members set the roadmap. Your workflow shapes the product.",
-  },
-];
+import { EarlyAccessButton } from "@/components/ui/EarlyAccessButton";
+import {
+  FOUNDING_PERKS as perks,
+  FOUNDING_DRAW_HEADLINE,
+  FOUNDING_DRAW_DETAIL,
+} from "@/lib/earlyAccess";
 
 export function FoundingOffer() {
   return (
     <section
       id="founding-offer"
       aria-labelledby="founding-heading"
-      className="pb-20 md:pb-32 px-4"
+      className="py-20 md:py-32 px-4"
     >
       <div className="max-w-6xl mx-auto">
         <div className="bg-white border border-gray-200 rounded-xl p-8 md:p-12">
@@ -50,13 +33,13 @@ export function FoundingOffer() {
                 Zebri is early, and the first MCs and celebrants on board get
                 treated like it. Every signup right now is a founding member.
               </p>
-              <a
-                href="https://app.zebri.com.au/signup"
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900 transition-colors"
+              <EarlyAccessButton
+                source="founding-offer"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900 transition-colors cursor-pointer"
               >
                 Claim your founding spot
                 <ArrowRight size={16} aria-hidden />
-              </a>
+              </EarlyAccessButton>
             </div>
 
             {/* Right: perks */}
@@ -90,9 +73,9 @@ export function FoundingOffer() {
                 />
                 <p className="text-sm text-[#6B7280] leading-relaxed">
                   <span className="font-semibold text-gray-900">
-                    And one founding member gets 12 months completely free.
+                    {FOUNDING_DRAW_HEADLINE}
                   </span>{" "}
-                  Every signup before launch goes into the draw.
+                  {FOUNDING_DRAW_DETAIL}
                 </p>
               </div>
             </div>

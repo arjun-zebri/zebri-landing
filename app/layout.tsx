@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { PostHogProvider } from "./providers";
+import { EarlyAccessProvider } from "@/components/ui/EarlyAccessProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -106,7 +107,9 @@ export default function RootLayout({
           color: "#111827",
         }}
       >
-        <PostHogProvider>{children}</PostHogProvider>
+        <PostHogProvider>
+          <EarlyAccessProvider>{children}</EarlyAccessProvider>
+        </PostHogProvider>
       </body>
     </html>
   );

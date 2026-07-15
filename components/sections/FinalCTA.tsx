@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { DemoModal } from "@/components/ui/DemoModal";
+import { EarlyAccessButton } from "@/components/ui/EarlyAccessButton";
+import { useEarlyAccess } from "@/components/ui/EarlyAccessProvider";
 
 export function FinalCTA() {
-  const [demoOpen, setDemoOpen] = useState(false);
+  const { open: openEarlyAccess } = useEarlyAccess();
 
   return (
     <section
@@ -32,29 +32,27 @@ export function FinalCTA() {
           Zebri handles the admin so you can focus on the performance.
         </p>
 
-        <a
-          href="https://app.zebri.com.au/signup"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900 text-sm font-semibold transition-colors"
+        <EarlyAccessButton
+          source="final-cta"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#A7F3D0] hover:bg-[#6ee7b7] text-gray-900 text-sm font-semibold transition-colors cursor-pointer"
         >
-          Get Started Free
+          Get Early Access
           <ArrowRight size={16} />
-        </a>
+        </EarlyAccessButton>
 
         <p className="mt-5 text-xs text-gray-600">
-          Free plan available &middot; No credit card required
+          We&apos;re onboarding founding members a few at a time
         </p>
 
         <div className="mt-8">
           <button
-            onClick={() => setDemoOpen(true)}
+            onClick={() => openEarlyAccess("final-cta-secondary")}
             className="text-sm text-gray-500 hover:text-gray-300 transition-colors underline underline-offset-4 decoration-gray-700 hover:decoration-gray-400 cursor-pointer"
           >
-            or Get a Demo
+            or book a call
           </button>
         </div>
       </div>
-
-      <DemoModal open={demoOpen} onClose={() => setDemoOpen(false)} />
     </section>
   );
 }
