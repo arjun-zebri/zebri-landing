@@ -9,7 +9,6 @@ const validation = [
 ];
 
 const founders = [
-  { name: "Nathan Cassar", img: "/mcs/nathan.svg" },
   { name: "John Edney", img: "/mcs/john.svg" },
   { name: "Ceremonies by Sarah", img: "/mcs/sarah.svg" },
   { name: "Married by Marianna", img: "/mcs/marianna.svg" },
@@ -77,7 +76,7 @@ export function Hero() {
               <p className="text-sm text-[#6B7280]">
                 Backed by MCs and celebrants behind{" "}
                 <span className="font-medium text-gray-900">
-                  2,500+ weddings and events
+                  2,000+ weddings and events
                 </span>
                 .
               </p>

@@ -6,14 +6,6 @@
  */
 const members = [
   {
-    name: "Nathan Cassar",
-    initials: "NC",
-    img: "/mcs/nathan.svg",
-    meta: "Sydney",
-    description:
-      "Sydney’s most awarded wedding MC, named ABIA’s #1 Wedding MC in NSW for 2025 and holder of 30+ industry awards since 2021. He’s hosted 200+ weddings and 300+ events, earned 235+ five-star reviews, and is the recommended MC at 40+ venues, a craft he first sharpened as an entertainment host for Princess Cruises.",
-  },
-  {
     name: "John Edney",
     initials: "JE",
     img: "/mcs/john.svg",
@@ -64,7 +56,7 @@ export function SocialProof() {
         </h2>
         <p className="text-lg text-[#6B7280] mt-4 mb-12 md:mb-16 max-w-3xl lg:max-w-5xl">
           A founding group of MCs and celebrants is shaping Zebri from the
-          inside, from award-winning veterans to hosts running their first
+          inside, from seasoned veterans to hosts running their first
           season. Wherever you are in the craft, there&rsquo;s a seat for you.
           Help us build the tool the industry has never had.
         </p>
