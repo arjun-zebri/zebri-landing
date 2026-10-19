@@ -1,16 +1,19 @@
 import Image from 'next/image';
 
-import { CheckIcon } from '@/components/ui-v2/icons';
-
-import { BlockMark } from './block-mark';
 import { blockById } from './catalog';
 
 /**
  * A block's picture on the site: a 2x capture of the block's product
  * image from the app (`public/site/block-<id>.png`, made by
- * `scripts/capture-product-shots.mjs`), or, for a block with no image yet,
- * its mark and first three specifics on the quiet canvas. Decorative: the
- * card's own heading and copy say what it shows.
+ * `scripts/capture-product-shots.mjs`). Decorative: the card's own
+ * heading and copy say what it shows.
+ *
+ * Email has no product image in the app yet. It used to fall back to
+ * its icon and first three bullets on a grey panel, which repeated the
+ * bullets printed right under it (founder, 2026-10-19). Until the app
+ * gains its image, it shows the branded thank-you email the Journeys
+ * band sends (`journey-welcome.png`, a real capture). When it does, add
+ * the id to `PICTURED`, re-run the capture script, and drop the stand-in.
  *
  * @module components/site/block-picture
  */
@@ -28,7 +31,13 @@ const PICTURED = new Set([
   'scripts',
   'bdm',
   'calendar',
+  'workflows',
 ]);
+
+/** Blocks shown with another capture until their own exists. */
+const STAND_INS: Record<string, string> = { 'email-marketing': '/site/journey-welcome.png' };
+
+const BOX = 'aspect-video w-full rounded-panel';
 
 /** The picture for a block, by catalogue id. */
 export function BlockPicture({ id }: { id: string }) {
@@ -42,20 +51,22 @@ export function BlockPicture({ id }: { id: string }) {
         width={1440}
         height={810}
         sizes="(min-width: 1024px) 352px, (min-width: 768px) 50vw, 100vw"
-        className="aspect-video w-full rounded-panel"
+        className={BOX}
       />
     );
-  return (
-    <div aria-hidden="true" className="flex aspect-video flex-col justify-center gap-3 rounded-panel bg-zebra-50 px-6">
-      <BlockMark block={block} />
-      <ul className="space-y-1.5">
-        {block.bullets.slice(0, 3).map((b) => (
-          <li key={b} className="flex items-center gap-2 type-body text-zebra-600">
-            <CheckIcon aria-hidden="true" className="size-3.5 shrink-0 text-grass-700" />
-            {b}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  const standIn = STAND_INS[block.id];
+  if (standIn)
+    return (
+      <Image
+        src={standIn}
+        alt=""
+        width={1360}
+        height={960}
+        sizes="(min-width: 1024px) 352px, (min-width: 768px) 50vw, 100vw"
+        // The email's head and greeting are what matter; the signature can fall off the foot.
+        className={`${BOX} object-cover object-top`}
+      />
+    );
+  return <div aria-hidden="true" className={`${BOX} bg-zebra-50`} />;
 }
+
