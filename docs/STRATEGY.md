@@ -48,12 +48,11 @@ Subheadline:
 ### Messaging Pillars
 
 #### 1. Urgency
-- "Only 20 spots. 8 remaining."
-- "First batch closes [specific date]."
-- "Next batch: Q3 2024."
+- A waitlist, let in a few at a time: "We're letting MCs and Celebrants in a few at a time."
+- Never a count of spots, sign-ups or a place in line (2026-10-19: the market is small, so any number backfires).
 
 #### 2. Reward / Incentive
-- "Founding members get 40% off forever."
+- "Founding members get Max for $47 a month for their first 12 months." (Shown as $47 with $99 struck out, by the founder's call, 2026-10-19. Under the Australian Consumer Law a was-price should be one Max has genuinely sold at, so start selling Max at $99 at launch. The headline says the number, not "the price of Pro", because $47 is under Pro's $59.)
 - "You shape the product. Your feedback directly influences what we build."
 - "Direct access to the team. Not a ticket system. Real people."
 
@@ -63,7 +62,7 @@ Subheadline:
 - No wedding clichés. No fluff.
 
 #### 4. Risk Removal
-- "No credit card required. Join the beta free."
+- "7-day free trial when you're in. Cancel any time, keep your data."
 - "If you don't love it, unsubscribe. No consequences."
 
 ### Tone

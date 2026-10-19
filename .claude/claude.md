@@ -6,8 +6,8 @@ This project operates under a focused validation experiment framework. All docum
 
 - **[docs/OVERVIEW.md](../docs/OVERVIEW.md)** — Core principle, project goals, primary objective
 - **[docs/STRATEGY.md](../docs/STRATEGY.md)** — Target audience, positioning, messaging pillars, tone
-- **[docs/PAGE_STRUCTURE.md](../docs/PAGE_STRUCTURE.md)** — Landing page sections and layout
-- **[docs/DESIGN_SYSTEM.md](../docs/DESIGN_SYSTEM.md)** — Colors, typography, visual guidelines
+- **[docs/PAGE_STRUCTURE.md](../docs/PAGE_STRUCTURE.md)** — Pages, sections, the waitlist and referrals (the source of truth for the live site)
+- **[docs/DESIGN_SYSTEM.md](../docs/DESIGN_SYSTEM.md)** — The app's v2 design system, copied in, and how product pictures are made
 - **[docs/REQUIREMENTS.md](../docs/REQUIREMENTS.md)** — Technical, SEO, and conversion rules
 - **[docs/EXECUTION.md](../docs/EXECUTION.md)** — Skills protocol, non-negotiables, execution mindset
 - **[.claude/brand-guide.md](.claude/brand-guide.md)** — Brand identity and logo guidelines
@@ -16,7 +16,9 @@ This project operates under a focused validation experiment framework. All docum
 
 Zebri is a high-conviction validation experiment. We are validating demand for a vertical Wedding MC command centre.
 
-**Success metric:** Qualified email capture.
+**Success metric:** Qualified waitlist sign-ups.
+
+The site is a waitlist (2026-10-19): people are let in a few at a time. Never show a waitlist count or a place-in-line number. Always "Celebrant(s)" with a capital C. No emojis in copy.
 
 **Optimisation priorities:** Clarity → Authority → Conversion → Speed of execution.
 

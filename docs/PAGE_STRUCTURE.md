@@ -1,110 +1,59 @@
-# Zebri Page Structure
+# Zebri Site Structure
 
-## Section 1 – Hero
+The site is a waitlist (founder, 2026-10-19): people join, and the founder
+lets MCs and Celebrants in a few at a time while the new Zebri is finished.
+Everyone in before the public launch is a founding member. **No waitlist
+count and no place-in-line number anywhere**: the market is small, so any
+number backfires.
 
-**Objective**: Immediate clarity + urgency + visible proof.
+## Pages
 
-- Bold headline (create fear/tension)
-- Subheading (specific MC pain)
-- Inline email CTA (email only, no form above fold)
-- Visual: **Dashboard/holistic view** of the product (NOT one feature)
-  - Show multiple features in context (e.g., timeline, couple details sidebar, script tabs visible)
-  - This proves "all-in-one"
-- Social proof: "Join X MCs already in beta"
-- Small badge: "20 spots closing [date]"
+| Path | What it is | Code |
+|------|-----------|------|
+| `/` | The marketing page | `components/site/website-page.tsx` |
+| `/blocks` | Every block in the catalogue | `components/site/blocks-page.tsx` |
+| `/guides` | Guides (SEO and AEO): the newest as a wide card, the rest as rows | `components/site/guides-page.tsx` |
+| `/guides/<slug>` | One guide, with `Article` data: founder byline, the landing page's body text, an "On this page" list from `lg`, then Keep reading | `components/site/guide-article.tsx`, `components/site/guide-contents.tsx`, `lib/guides.ts` |
+| `/privacy`, `/terms` | Legal text in the site frame | `components/site/legal-page.tsx` |
 
----
+Redirects (`next.config.ts`): `/blog` → `/guides`, `/blog/:slug` →
+`/guides/:slug`, `/news` and `/news/:slug` → `/`.
 
-## Section 2 – The Problem (Reimagined)
+Nav: Features, Guides, Blocks, Pricing; Log in goes to
+`https://app.zebri.com.au/login`; the button is Join the waitlist.
 
-**Do NOT just list pain points.**
+## The home page, top to bottom
 
-Instead: **Before/After scenario** or **Day-in-life narrative**
+1. **Hero**: "You run the event. Zebri does the rest." The lead names MCs
+   and Celebrants. Join the waitlist and See how it works. The founding
+   members' faces (real, `public/mcs/`) with "10,000+ events between them",
+   a figure from their own public sites. The dashboard picture. A strip of
+   the tools Zebri replaces.
+2. **Journeys**: the six steps a booking runs through, ticking in turn,
+   beside the document each one sends.
+3. **BDM lodgement**: fill it in, Zebri checks it, lodge with BDM.
+4. **Blocks**: six outcomes, See all goes to `/blocks`.
+5. **Zebri AI**: drafted replies, nudges, calls that update the couple, as
+   working windows.
+6. **Security**.
+7. **Pricing**: Pro $59 a month. Max recommended, $47 struck from $99, "a
+   month for your first 12 months" (see STRATEGY.md).
+   Enterprise Custom, Talk to us. Each plan's button carries the plan to
+   the waitlist form.
+8. **Waitlist** (`#early-access`): the email alone, then a success dialog.
+9. **FAQ**, then the footer. The footer links Zebri's Instagram (zebri_au),
+   Facebook and LinkedIn pages (`site-footer.tsx`).
 
-Show an MC's frustration journey → how Zebri solves it.
+## The waitlist
 
-Use specific dialogue or narrative, not bullet points.
+`components/site/early-access-form.tsx` takes the email, and that is the
+whole sign-up: no dialog, no name or trade. It calls the server action
+`app/actions/waitlist.ts`, which emails each sign-up to
+arjun@zebri.com.au through Resend (`RESEND_API_KEY`, sent from
+app.zebri.com.au), then a success dialog opens (`waitlist-done.tsx`, the
+app's dialog anatomy with its `DoneView`) saying the invite comes by
+email. Once it is closed, the form's place holds one line saying they are
+on the list. There is no database: the inbox is the list. PostHog event:
+`waitlist_joined`.
 
----
-
-## Section 3 – Features (With Visible Product Snapshots)
-
-**Critical**: Each feature has a REAL, VISIBLE product screenshot below it.
-
-NOT clickable. NOT hidden. ALWAYS VISIBLE.
-
-Features (with brief 1-line description):
-
-1. **End-to-End Client Management** — Full CRM built for MCs: couples, vendors, payments, pipeline
-   - Screenshot: Table/list view with Name, Email, Event Date, Venue, Status columns + status badges (New/Contacted/Confirmed/Paid/Complete)
-2. **Shared Timeline** — One run sheet. DJ, photographer, couple all see it in real-time
-   - Screenshot: Time-blocked calendar view, drag-drop blocks, couple name header, share-link toggle (mint green active)
-3. **Couple Portal** — One link. They submit names, pronunciations, contracts, files, song requests
-   - Screenshot: Portal form with sections (Names & Pronunciation, Song Requests, Uploaded Files, Notes) + progress indicator
-4. **AI Sales Tool** — Opportunity scores, next best actions, conversation summaries per enquiry
-   - Screenshot: AI Priority Queue with couple list, mint-green score bars, next-action badges, conversation summary snippets
-5. **Event Mode** — Full-screen, offline-first performance view. Large text, current item highlighted
-   - Screenshot: Dark background, mint-highlighted current item, LIVE badge, next-up card
-
-Each screenshot should be a coded mockup that looks like real software.
-
----
-
-## Section 4 – The Reward (NEW)
-
-**This is critical for conversion.**
-
-"Founding Members Get:"
-- Lifetime 40% discount (hardest number)
-- Priority feature requests (influence the product)
-- Direct access to the team
-- [OPTIONAL] Exclusive [something else]
-
-This section removes hesitation: "Why should I join the beta?"
-
----
-
-## Section 5 – FAQ (Required)
-
-Include 6–8 FAQs addressing:
-
-- Is this only for professional MCs?
-- Is this a CRM?
-- When is it launching?
-- How much will it cost?
-- Can I give feedback?
-- Is this available outside Australia?
-- What happens after I sign up?
-
-Tone must remove friction and create trust.
-Note: The CRM FAQ should reflect that Zebri includes client management features but is purpose-built for MCs (not a generic CRM).
-
----
-
-## Section 6 – Final CTA
-
-Reinforce urgency:
-
-- Headline: Creates scarcity/FOMO
-- Subtext: Clear value (the reward)
-- Form: Full signup (name, email, weddings/year optional)
-- Primary CTA button color: `bg-gray-900` (black)
-- Visual emphasis on the reward (not just "join beta")
-
----
-
-## REMOVED SECTIONS
-
-- "See It In Action" (redundant—features section has visible snapshots)
-
----
-
-## Footer
-
-- Clean, professional layout
-- Logo/wordmark on left
-- Links: Instagram (with icon), Email (with icon)
-- Use proper SVG or icon font (not emoji)
-- Legal: "© 2026 Zebri. Built for professional wedding MCs."
-- Email: arjun@zebri.com.au
-- NO social media badges or unnecessary elements
+No referral scheme and no place in line (founder, 2026-10-19).

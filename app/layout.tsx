@@ -1,115 +1,57 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { PostHogProvider } from "./providers";
-import { EarlyAccessProvider } from "@/components/ui/EarlyAccessProvider";
-import "./globals.css";
+import type { Metadata, Viewport } from 'next';
+import { Inter } from 'next/font/google';
+
+import { FocusModality } from '@/components/site/focus-modality';
+import { JsonLd } from '@/components/site/json-ld';
+import { organization, SITE_URL } from '@/lib/structured-data';
+
+import { PostHogProvider } from './providers';
+import './globals.css';
+
+/**
+ * The site's root: Inter, the v2 focus and scrollbar behaviour the design
+ * system expects (`FocusModality`, `v2-scroll`), PostHog, and the
+ * Organization data every page carries. Each page sets its own title
+ * through the template.
+ *
+ * @module app/layout
+ */
 
 const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
 });
 
+const DESCRIPTION =
+  'Software for Australian wedding MCs and Celebrants. Zebri drafts your replies, sends proposals and contracts, chases deposits and gets the marriage paperwork ready to lodge.';
+
 export const metadata: Metadata = {
-  title: "Zebri - Wedding MC & Celebrant Software | CRM, Timeline & Couple Portal",
-  description:
-    "The command centre for professional wedding MCs and celebrants. Manage couples, build shared timelines, run the couple portal, and walk into every wedding ready.",
-  keywords: [
-    "wedding MC software",
-    "wedding MC CRM",
-    "wedding celebrant software",
-    "celebrant CRM",
-    "wedding MC timeline tool",
-    "wedding ceremony MC app",
-    "MC management software",
-    "wedding MC run sheet",
-    "couple portal for MCs",
-    "wedding MC Australia",
-  ],
-  metadataBase: new URL("https://zebri.com.au"),
-  alternates: {
-    canonical: "/",
-  },
+  metadataBase: new URL(SITE_URL),
+  title: { default: 'Zebri · You run the event. Zebri does the rest.', template: '%s · Zebri' },
+  description: DESCRIPTION,
+  applicationName: 'Zebri',
   openGraph: {
-    title: "Zebri - Built for Wedding MCs & Celebrants",
-    description:
-      "Stop juggling 6 tabs the night before a wedding. One place for every couple, timeline, and script.",
-    type: "website",
-    url: "https://zebri.com.au",
-    siteName: "Zebri",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Zebri - Wedding MC Command Centre",
-      },
-    ],
+    type: 'website',
+    siteName: 'Zebri',
+    locale: 'en_AU',
+    url: SITE_URL,
+    title: 'Zebri · You run the event. Zebri does the rest.',
+    description: DESCRIPTION,
+    images: [{ url: '/site/hero-dashboard.png', width: 2560, height: 1472, alt: 'The Zebri dashboard' }],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Zebri - Built for Wedding MCs & Celebrants",
-    description:
-      "Stop juggling 6 tabs the night before a wedding. One place for every couple, timeline, and script.",
-    images: ["/og-image.png"],
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
+  twitter: { card: 'summary_large_image' },
+  icons: { icon: '/favicon.ico' },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "Zebri",
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web",
-  description:
-    "The command centre for professional wedding MCs and celebrants. Manage couples, build shared timelines, run the couple portal, and walk into every wedding ready.",
-  url: "https://zebri.com.au",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "AUD",
-    description:
-      "Free plan available. Pro from $49/month AUD. Max from $79/month AUD.",
-  },
-  audience: {
-    "@type": "Audience",
-    audienceType: "Professional Wedding MCs and Celebrants",
-  },
-  creator: {
-    "@type": "Organization",
-    name: "Zebri",
-    url: "https://zebri.com.au",
-    email: "arjun@zebri.com.au",
-  },
-};
+export const viewport: Viewport = { themeColor: '#ffffff' };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
-      <body
-        className={`${inter.variable} antialiased`}
-        style={{
-          fontFamily: "var(--font-inter)",
-          backgroundColor: "#FFFFFF",
-          color: "#111827",
-        }}
-      >
-        <PostHogProvider>
-          <EarlyAccessProvider>{children}</EarlyAccessProvider>
-        </PostHogProvider>
+    <html lang="en-AU">
+      <body className={`${inter.className} v2-scroll bg-field text-zebra-950 antialiased`}>
+        <FocusModality />
+        <JsonLd data={organization} />
+        <PostHogProvider>{children}</PostHogProvider>
       </body>
     </html>
   );

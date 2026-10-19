@@ -47,6 +47,6 @@ SEO still matters for credibility.
 - Professional positioning
 - **Reward prominence**: Make the incentive (40% off forever, direct access) prominent and repeated
 - **Urgency**: "Closes [specific date]" should appear 2-3 times on page
-- **Social proof**: Show that other MCs (doing 30+ weddings/year) are already in beta
+- **Social proof**: The real founding members, with only the figures their own public sites state (no waitlist counts)
 
 This must feel exclusive and purpose-built.
