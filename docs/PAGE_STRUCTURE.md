@@ -14,7 +14,7 @@ number backfires.
 | `/blocks` | Every block in the catalogue | `components/site/blocks-page.tsx` |
 | `/guides` | Guides (SEO and AEO): the newest as a wide card, the rest as rows | `components/site/guides-page.tsx` |
 | `/guides/<slug>` | One guide, with `Article` data: founder byline, the landing page's body text, an "On this page" list from `lg`, then Keep reading | `components/site/guide-article.tsx`, `components/site/guide-contents.tsx`, `lib/guides.ts` |
-| `/privacy`, `/terms` | Legal text in the site frame | `components/site/legal-page.tsx` |
+| `/privacy`, `/terms`, `/data-deletion` | Legal text in the site frame. Data deletion is the "User Data Deletion" URL Meta's app review needs (V2-7) and the Privacy Act's delete-on-request route | `components/site/legal-page.tsx` |
 
 Redirects (`next.config.ts`): `/blog` → `/guides`, `/blog/:slug` →
 `/guides/:slug`, `/news` and `/news/:slug` → `/`.

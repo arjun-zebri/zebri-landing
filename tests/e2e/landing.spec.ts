@@ -91,8 +91,12 @@ test('old blog and news links redirect', async ({ page }) => {
   await expect(page).toHaveURL(/localhost:\d+\/$/);
 });
 
-test('privacy and terms render in the site frame', async ({ page }) => {
-  for (const [path, title] of [['/privacy', 'Privacy Policy'], ['/terms', 'Terms of Service']] as const) {
+test('privacy, terms and data deletion render in the site frame', async ({ page }) => {
+  for (const [path, title] of [
+    ['/privacy', 'Privacy Policy'],
+    ['/terms', 'Terms of Service'],
+    ['/data-deletion', 'Data Deletion'],
+  ] as const) {
     await page.goto(path);
     await expect(page.getByRole('heading', { level: 1, name: title })).toBeVisible();
     await expect(page.getByRole('contentinfo')).toBeVisible();

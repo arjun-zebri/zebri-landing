@@ -40,6 +40,8 @@ const COLUMNS: { title: string; links: { href: string; label: string }[] }[] = [
     links: [
       { href: '/privacy', label: 'Privacy' },
       { href: '/terms', label: 'Terms' },
+      // Meta's app review looks for a public "User Data Deletion" page (V2-7); the Privacy Act wants it anyway.
+      { href: '/data-deletion', label: 'Data deletion' },
     ],
   },
 ];
