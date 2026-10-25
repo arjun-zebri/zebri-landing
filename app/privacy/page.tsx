@@ -52,7 +52,7 @@ const PROCESSORS: Processor[] = [
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy Policy" updated="19 October 2026">
+    <LegalPage title="Privacy Policy" updated="25 October 2026">
       <section>
         <h2 id="who-we-are-and-what-this-covers">1. Who we are and what this covers</h2>
         <p>
@@ -272,7 +272,9 @@ export default function PrivacyPage() {
           You can ask us for a copy of the personal information we hold about you, ask us to
           correct it, or ask us to delete it, by emailing {CONTACT}. We will reply within 30 days.
           We may need to confirm who you are first. If we cannot do what you ask (for example, a
-          billing record we must keep), we will say why.
+          billing record we must keep), we will say why. Our{' '}
+          <a href="/data-deletion">Data Deletion</a> page sets out the deletion process step by
+          step, including for information we receive through Instagram.
         </p>
         <p>
           If you think we have mishandled your information, email {CONTACT} with “Privacy
