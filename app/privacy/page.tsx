@@ -20,6 +20,12 @@ import { LegalPage } from '@/components/site/legal-page';
  * 9 says it will be named before SMS is switched on. Replace it with the
  * provider's name and country when it is.
  *
+ * The Google Calendar paragraph in section 9 (2026-10-28) is what Google's
+ * OAuth verification reviewers look for: the scopes in plain words, the
+ * narrow use, no humans reading it, and the Limited Use sentence, which
+ * they match close to word for word. If Zebri starts using calendar data
+ * for anything else (AI included), change this paragraph first.
+ *
  * @module app/privacy/page
  */
 
@@ -52,7 +58,7 @@ const PROCESSORS: Processor[] = [
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy Policy" updated="25 October 2026">
+    <LegalPage title="Privacy Policy" updated="28 October 2026">
       <section>
         <h2 id="who-we-are-and-what-this-covers">1. Who we are and what this covers</h2>
         <p>
@@ -206,6 +212,24 @@ export default function PrivacyPage() {
           Video calls run in Zebri itself, in your browser. No outside video service is involved;
           only the transcript goes to Anthropic, as section 7 explains. SMS will run through a
           third-party provider, and we will name it here before SMS is switched on for any account.
+        </p>
+        <p id="google-calendar">
+          If you connect Google Calendar, Zebri asks Google for permission to see and edit the
+          events on your calendars and to see when you are free or busy. Zebri uses that access
+          only to put your bookings in your calendar, keep them in sync and check your
+          availability. We do not sell this data, use it for advertising or use it to train any AI
+          model, and no one at Zebri reads it unless you ask us to for support, it is needed for
+          security, or the law requires it. You can disconnect Google Calendar at any time in
+          Zebri’s settings or in your Google Account; we then delete the access Google gave us and
+          stop syncing. Zebri’s use of information received from Google APIs adheres to the{' '}
+          <a
+            href="https://developers.google.com/terms/api-services-user-data-policy"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Google API Services User Data Policy
+          </a>
+          , including the Limited Use requirements.
         </p>
         <p>
           Your couples’ records and files are stored in Australia (Supabase, Sydney). The other
